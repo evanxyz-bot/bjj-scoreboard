@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     rollupOptions: {
-      input: 'bjj-scoreboard.html'
+      input: 'index.html'
     }
   }
 })
