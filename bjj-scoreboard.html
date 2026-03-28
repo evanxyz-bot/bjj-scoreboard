@@ -654,5 +654,18 @@ document.addEventListener('keydown',function(e){
 <script>
 if('serviceWorker' in navigator){navigator.serviceWorker.register('/service-worker.js')}
 </script>
+<script type="module">
+if(window.__TAURI__){
+  const{check}=window.__TAURI__.updater;
+  const{ask}=window.__TAURI__.dialog;
+  try{
+    const update=await check();
+    if(update){
+      const yes=await ask('새 버전('+update.version+')이 있습니다. 업데이트 하시겠습니까?','BJJ.Score 업데이트');
+      if(yes){await update.downloadAndInstall();const{relaunch}=window.__TAURI__.process;await relaunch()}
+    }
+  }catch(e){console.log('Update check skipped:',e)}
+}
+</script>
 </body>
 </html>
