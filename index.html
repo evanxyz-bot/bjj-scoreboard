@@ -5,10 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>BJJ.Score</title>
-<link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#0a0a0a">
-<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
-<link rel="apple-touch-icon" href="/icons/icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&family=Orbitron:wght@400;700;900&family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0a0a0a;--panel:#111;--border:#222;--grid:#555;--text:#ddd;--dim:#555;--muted:#333;
@@ -808,9 +805,6 @@ document.addEventListener('keydown',function(e){
     else if(a.id==='bA'||a.id==='bC')backSel();
     return}
   var a=document.querySelector('.scr.on');if(a&&(a.id.startsWith('b')||a.id==='trbd')){if(e.code==='Space'){e.preventDefault();tog()}if(e.code==='KeyZ')undo();if(e.code==='F11'){e.preventDefault()}}})
-</script>
-<script>
-if('serviceWorker' in navigator){navigator.serviceWorker.register('/service-worker.js')}
 </script>
 <script type="module">
 if(window.__TAURI__){

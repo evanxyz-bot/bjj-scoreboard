@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs ls:*)",
+      "Bash(ls -lh /c/Users/dol37/Desktop/bjj-scoreboard/src-tauri/icons/*.ico /c/Users/dol37/Desktop/bjj-scoreboard/src-tauri/icons/*.icns)",
+      "Bash(code --list-extensions)",
+      "Bash(code.cmd --list-extensions)",
+      "mcp__claude_ai_ClickUp__clickup_get_workspace_hierarchy",
+      "mcp__claude_ai_ClickUp__clickup_create_list",
+      "mcp__claude_ai_ClickUp__clickup_create_task"
+    ]
+  }
+}

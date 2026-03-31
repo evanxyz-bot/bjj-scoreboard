@@ -2,21 +2,14 @@
   "name": "jiujitsu-score-board",
   "version": "1.0.0",
   "description": "",
-  "main": "service-worker.js",
   "scripts": {
-    "dev": "vite --port 3000",
-    "build": "vite build",
-    "preview": "vite preview",
-    "tauri": "tauri",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node -e \"const fs=require('fs');fs.mkdirSync('dist',{recursive:true});fs.copyFileSync('index.html','dist/index.html')\"",
+    "tauri": "tauri"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@tauri-apps/cli": "^2.10.1",
-    "vite": "^8.0.3"
+    "@tauri-apps/cli": "^2.10.1"
   },
   "dependencies": {
     "@tauri-apps/plugin-updater": "^2.10.0"

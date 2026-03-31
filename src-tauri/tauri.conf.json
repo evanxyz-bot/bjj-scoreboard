@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "identifier": "com.bjjscore.scoreboard",
   "build": {
-    "frontendDist": "../dist",
-    "devUrl": "http://localhost:3000"
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
   },
   "app": {
     "windows": [

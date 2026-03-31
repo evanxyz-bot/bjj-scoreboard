@@ -24,10 +24,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Copy frontend to dist
-        run: |
-          mkdir dist
-          copy bjj-scoreboard.html dist\
+      - name: Build frontend
+        run: npm run build
 
       - name: Build Tauri
         uses: tauri-apps/tauri-action@v0
