@@ -14,18 +14,18 @@
   --pen-bg:#ff1744;--adv-bg:#ffea00;--tot-bg:#ffffff;
   --score-color:#111;--yellow:#ffd600;--blue:#448aff;--green:#00e676}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none}
-html,body{height:100%;overflow:hidden;position:fixed;width:100%}
+html,body{height:100%;overflow:hidden;width:100%}
 body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text)}
-.scr{display:none;flex-direction:column;height:100%;overflow-y:auto;overflow-x:hidden}.scr.on{display:flex}
+.scr{display:none;flex-direction:column;height:100%;overflow:hidden}.scr.on{display:flex}
 
 /* HOME */
-#home{align-items:stretch;justify-content:flex-start;gap:0;padding:0;min-height:100%;position:relative;
+#home{align-items:stretch;justify-content:flex-start;gap:0;padding:0;height:100%;position:relative;
   background:radial-gradient(ellipse at 30% 50%,rgba(255,26,26,.06),transparent 50%),radial-gradient(ellipse at 70% 50%,rgba(68,138,255,.06),transparent 50%),var(--bg)}
 .home-beam{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:2;opacity:0;transition:opacity 1.2s linear;overflow:visible}
 .home-beam.on{opacity:1}
-.home-beam-cone{position:absolute;inset:0;pointer-events:none;transition:none;filter:blur(0px)}
+.home-beam-cone{position:absolute;inset:0;pointer-events:none;transition:none;filter:blur(8px)}
 .home-floor-light{position:fixed;pointer-events:none;z-index:1;border-radius:50%;opacity:0;transition:opacity .3s;
-  background:radial-gradient(ellipse,rgba(255,214,0,.18) 0%,rgba(255,214,0,.06) 40%,transparent 70%)}
+  background:radial-gradient(ellipse,rgba(255,214,0,.12) 0%,rgba(255,214,0,.04) 30%,transparent 60%)}
 .home-lamp{position:relative;z-index:6;background:linear-gradient(180deg,#555,#333);border-radius:6px 6px 16px 16px;width:clamp(48px,7vw,64px)!important;height:clamp(44px,6.5vw,58px)!important;box-shadow:0 2px 8px rgba(0,0,0,.5)}
 .home-lamp::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:4px;height:6px;background:#666;border-radius:2px}
 .home-lamp::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:80%;height:8px;background:rgba(255,214,0,0);border-radius:0 0 6px 6px;box-shadow:0 0 0 transparent;transition:all 1s cubic-bezier(.22,.61,.36,1)}
@@ -38,9 +38,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .home-logo h1::before{content:attr(data-text);position:absolute;inset:0;
   background:linear-gradient(160deg,#1a1a1a 0%,#333 25%,#0a0a0a 40%,#2a2a2a 55%,#111 70%,#303030 85%,#1a1a1a 100%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;-webkit-text-stroke:0;text-shadow:none}
-.home-bottom-text{color:#fff;font-size:clamp(13px,2.5vw,18px);letter-spacing:4px;text-align:center;font-weight:500;
-  position:absolute;bottom:clamp(40px,8vh,80px);left:0;right:0}
-.hcards{display:flex;gap:clamp(60px,10vw,120px);width:100%;max-width:1100px;justify-content:center}
+.home-bottom{display:flex;align-items:center;justify-content:center;padding:clamp(14px,3vh,28px) clamp(16px,3vw,32px);position:absolute;bottom:0;left:0;right:0;z-index:1;background:transparent}
+.home-bottom-text{color:#fff;font-size:clamp(16px,3vw,22px);letter-spacing:4px;text-align:center;font-weight:500}
+.home-contact{position:absolute;right:clamp(16px,3vw,32px);text-align:right;z-index:5}
+.home-contact-label{font-family:'Noto Sans KR',sans-serif;font-size:clamp(13px,2.2vw,17px);color:#666;margin-bottom:6px}
+.home-contact-link{display:flex;align-items:center;gap:8px;text-decoration:none;color:#888;font-family:'Noto Sans KR',sans-serif;font-size:clamp(14px,2.4vw,18px);font-weight:600;transition:color .2s;justify-content:flex-end}
+.home-contact-link:hover{color:#e1306c}
+.home-contact-link svg{width:clamp(18px,2.8vw,22px);height:clamp(18px,2.8vw,22px);flex-shrink:0}
+.hcards{display:flex;gap:clamp(24px,4vw,60px);width:100%;max-width:1200px;justify-content:center}
 .hcard{flex:1;background:linear-gradient(145deg,#1a1a1a 0%,#252525 30%,#1e1e1e 50%,#2a2a2a 70%,#181818 100%);
   border:1px solid #3a3a3a;border-radius:clamp(12px,2vw,20px);
   padding:clamp(30px,5vw,56px) clamp(22px,3.5vw,44px);cursor:pointer;transition:all .3s ease;text-align:center;position:relative;overflow:visible;
@@ -116,21 +121,21 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 
 
 /* BOARD HEADER */
-.hdr{display:flex;align-items:center;justify-content:space-between;padding:clamp(4px,1vw,10px) clamp(6px,1.5vw,16px);background:var(--panel);border-bottom:1px solid var(--border);position:relative;gap:4px;flex-wrap:nowrap;overflow:hidden}
-.hdr-l{display:flex;align-items:center;gap:clamp(3px,.8vw,10px)}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:clamp(8px,1.5vw,16px) clamp(10px,2vw,24px);background:var(--panel);border-bottom:1px solid var(--border);position:relative;gap:6px;flex-wrap:nowrap;overflow:hidden}
+.hdr-l{display:flex;align-items:center;gap:clamp(5px,1.2vw,14px)}
 .hdr-c{position:absolute;left:50%;transform:translateX(-50%)}
-.h-btn{background:#444;border:none;color:#fff;width:clamp(30px,5vw,56px);height:clamp(30px,5vw,56px);border-radius:8px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.h-btn{background:#444;border:none;color:#fff;width:clamp(48px,7.5vw,84px);height:clamp(48px,7.5vw,84px);border-radius:10px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
 .h-btn:hover{background:#555}.h-btn:active{transform:scale(.93)}
-.h-btn svg{width:clamp(14px,2.5vw,30px);height:clamp(14px,2.5vw,30px);stroke:#fff;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.hdr-r{display:flex;align-items:center;gap:clamp(3px,.8vw,10px)}
-.h-btn-rst{background:#c62828;border:none;color:#fff;padding:clamp(4px,.8vw,12px) clamp(8px,1.5vw,22px) clamp(6px,1vw,14px);border-radius:6px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(10px,1.8vw,18px);flex-shrink:0;font-weight:700;letter-spacing:1px;transition:background .15s;display:inline-flex;align-items:center;justify-content:center;line-height:1}
+.h-btn svg{width:clamp(20px,3.5vw,42px);height:clamp(20px,3.5vw,42px);stroke:#fff;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.hdr-r{display:flex;align-items:center;gap:clamp(5px,1.2vw,14px)}
+.h-btn-rst{background:#c62828;border:none;color:#fff;padding:clamp(10px,1.5vw,20px) clamp(18px,3vw,40px) clamp(12px,1.8vw,22px);border-radius:8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(16px,2.8vw,28px);flex-shrink:0;font-weight:700;letter-spacing:1px;transition:background .15s;display:inline-flex;align-items:center;justify-content:center;line-height:1}
 .h-btn-rst:hover{background:#e53935}.h-btn-rst:active{transform:scale(.93)}
-.h-btn-undo{background:#1565c0;border:none;color:#fff;padding:clamp(4px,.8vw,12px) clamp(8px,1.5vw,22px) clamp(6px,1vw,14px);border-radius:6px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(10px,1.8vw,18px);flex-shrink:0;font-weight:700;letter-spacing:1px;transition:background .15s;display:inline-flex;align-items:center;justify-content:center;line-height:1}
+.h-btn-undo{background:#1565c0;border:none;color:#fff;padding:clamp(10px,1.5vw,20px) clamp(18px,3vw,40px) clamp(12px,1.8vw,22px);border-radius:8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(16px,2.8vw,28px);flex-shrink:0;font-weight:700;letter-spacing:1px;transition:background .15s;display:inline-flex;align-items:center;justify-content:center;line-height:1}
 .h-btn-undo:hover{background:#1976d2}.h-btn-undo:active{transform:scale(.93)}
 .h-btn-undo:disabled{opacity:.35;cursor:not-allowed;background:#1565c0}
-.h-btn-x{background:#333;border:none;color:#fff;width:clamp(30px,5vw,56px);height:clamp(30px,5vw,56px);border-radius:8px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.h-btn-x{background:#333;border:none;color:#fff;width:clamp(48px,7.5vw,84px);height:clamp(48px,7.5vw,84px);border-radius:10px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .h-btn-x:hover{background:#444}
-.h-btn-x svg{width:clamp(12px,2.2vw,26px);height:clamp(12px,2.2vw,26px);stroke:#fff;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.h-btn-x svg{width:clamp(18px,3.2vw,38px);height:clamp(18px,3.2vw,38px);stroke:#fff;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
 
 /* TIMER */
 .tms{display:flex;align-items:center;justify-content:center;height:clamp(80px,32%,280px);position:relative;background:#fff;flex-shrink:0;cursor:pointer;border-top:2px solid var(--grid)}
@@ -146,11 +151,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .tm-time-btn:hover{background:#444}.tm-time-btn:active{transform:scale(.9)}
 .tm-edit{display:none;flex-direction:column;align-items:center;gap:clamp(10px,2vh,18px);font-family:'Orbitron',monospace;pointer-events:auto}
 .tm-edit.on{display:flex}
-.te-presets{display:flex;gap:clamp(6px,1.5vw,12px)}
+.te-presets{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(6px,1.5vw,12px)}
 .te-presets button{background:#111;border:2px solid #444;color:#ffd600;font-family:'Rajdhani',sans-serif;font-size:clamp(22px,4.5vw,36px);font-weight:700;padding:clamp(8px,1.5vw,14px) clamp(14px,3vw,26px);border-radius:8px;cursor:pointer}
 .te-presets button:hover{background:#333;border-color:#ffd600}
 .te-presets button:active{transform:scale(.93)}
-.te-custom{display:flex;align-items:center;gap:clamp(6px,1.2vw,10px)}
+.te-custom{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(6px,1.2vw,10px)}
 .te-custom input[type="number"]{background:#111;color:#ffd600;border:2px solid #444;border-radius:8px;font-family:'Rajdhani',sans-serif;font-size:clamp(22px,4.5vw,36px);font-weight:700;padding:clamp(6px,1vw,12px) clamp(6px,1vw,12px);width:clamp(50px,10vw,80px);text-align:center;-moz-appearance:textfield;outline:none}
 .te-custom input[type="number"]::-webkit-inner-spin-button,.te-custom input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 .te-custom input[type="number"]:focus{border-color:#ffd600;background:#222}
@@ -205,9 +210,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .s-sub{font-size:clamp(12px,2vw,15px);color:#888;margin-top:4px}
 .s-note{font-size:clamp(11px,1.8vw,13px);color:#f9a825;margin-top:6px;display:none}
 .s-note.on{display:block}
-.s-sel{background:var(--bg);border:1px solid var(--border);color:#fff;padding:clamp(6px,1vw,10px) clamp(10px,2vw,14px);border-radius:6px;font-family:'Noto Sans KR',sans-serif;font-size:clamp(14px,2.5vw,18px);outline:none}
-.s-sel:focus{border-color:var(--yellow)}
-.s-sel:disabled{opacity:.35;cursor:not-allowed}
+.s-input{background:var(--bg);border:1px solid var(--border);color:#fff;padding:clamp(6px,1vw,10px) clamp(6px,1vw,10px);border-radius:6px;font-family:'Noto Sans KR',sans-serif;font-size:clamp(14px,2.5vw,18px);outline:none;width:clamp(44px,8vw,60px);text-align:center;-moz-appearance:textfield}
+.s-input::-webkit-inner-spin-button,.s-input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.s-input:focus{border-color:var(--yellow)}
+.s-input:disabled{opacity:.35;cursor:not-allowed}
 .s-snd-toggle{background:#2a2a2a;border:2px solid #555;border-radius:8px;padding:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .s-snd-toggle svg{width:22px;height:22px}
 .s-snd-toggle.on{border-color:var(--green);background:rgba(0,230,118,.1)}
@@ -257,7 +263,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .log-tl-cell{min-width:clamp(50px,8vw,70px);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,2.5vw,22px);letter-spacing:1px;border-right:1px solid #333;flex-shrink:0;color:#555}
 .log-tl-cell.active{color:var(--green)}.log-tl-cell.minus-active{color:var(--red)}
 .log-tl-cell.pen-active{color:#ff8a80}.log-tl-cell.adv-active{color:#ffd54f}
-.h-btn-log{background:#2e7d32;border:none;color:#fff;padding:clamp(4px,.8vw,12px) clamp(8px,1.5vw,22px) clamp(6px,1vw,14px);border-radius:6px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(10px,1.8vw,18px);flex-shrink:0;font-weight:700;letter-spacing:1px;transition:background .15s;display:inline-flex;align-items:center;justify-content:center;line-height:1}
+.log-tl-row.log-row-linked{position:relative;z-index:2;overflow:visible}
+.log-tl-cell.log-link-pen{position:relative;overflow:visible;z-index:3}
+.log-link-pen .link-arrow{position:absolute;left:50%;transform:translateX(-50%);width:20px;height:14px}
+.log-link-pen.link-down .link-arrow{bottom:-7px}
+.log-link-pen.link-up .link-arrow{top:-9px}
+.h-btn-log{background:#2e7d32;border:none;color:#fff;padding:clamp(10px,1.5vw,20px) clamp(18px,3vw,40px) clamp(12px,1.8vw,22px);border-radius:8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(16px,2.8vw,28px);flex-shrink:0;font-weight:700;letter-spacing:1px;transition:background .15s;display:inline-flex;align-items:center;justify-content:center;line-height:1}
 .h-btn-log:hover{background:#388e3c}.h-btn-log:active{transform:scale(.93)}
 
 /* TRAINING TABLE */
@@ -349,9 +360,67 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .wbk{background:#333;border:1px solid #555;color:#fff}.wbk:hover{background:#444;border-color:#777}
 .whm{background:#555;border:1px solid #666;color:#fff;display:flex;align-items:center;justify-content:center}.whm:hover{background:#666;border-color:#888}
 
-@media(max-width:640px){.hcards,.tcards{flex-direction:column}}
 @media(max-width:400px){.gC .cl{font-size:clamp(38px,8vw,76px)}.gC .cl-tot{font-size:clamp(42px,9vw,84px)}}
 @media(orientation:landscape) and (max-height:500px){.tms{height:45%}.tmv{font-size:clamp(100px,36vh,200px)}}
+
+/* SPARRING TIMER */
+#sparSet{align-items:stretch;justify-content:flex-start;gap:0;padding:0;min-height:100%;position:relative;
+  background:radial-gradient(ellipse at 50% 30%,rgba(0,230,118,.06),transparent 60%),var(--bg)}
+#sparSet .pg-top{background:none;border:none;box-shadow:none}
+.spar-title h1{font-family:'Orbitron',monospace;font-size:clamp(32px,7vw,64px);font-weight:900;
+  -webkit-text-fill-color:#000;-webkit-text-stroke:2px var(--green);
+  text-shadow:0 0 10px rgba(0,230,118,.8),0 0 30px rgba(0,230,118,.5),0 0 60px rgba(0,230,118,.3),0 0 100px rgba(0,230,118,.15);
+  text-align:center;letter-spacing:6px;position:relative}
+.spar-title h1::before{content:attr(data-text);position:absolute;inset:0;
+  background:linear-gradient(160deg,#1a1a1a 0%,#333 25%,#0a0a0a 40%,#2a2a2a 55%,#111 70%,#303030 85%,#1a1a1a 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;-webkit-text-stroke:0;text-shadow:none}
+.sp-body{flex:1;overflow-y:auto;padding:clamp(12px,2vw,24px);display:flex;flex-direction:column;align-items:center;gap:clamp(16px,3vh,28px)}
+.sp-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,20px);width:100%;max-width:960px}
+.sp-panel{background:#1a1a1a;border:1px solid #333;border-radius:clamp(10px,1.5vw,16px);padding:clamp(14px,2.5vw,22px)}
+.sp-panel-label{font-family:'Noto Sans KR',sans-serif;font-size:clamp(13px,2.2vw,17px);color:#888;margin-bottom:clamp(8px,1.5vw,14px);font-weight:600;letter-spacing:1px}
+.sp-opts{display:flex;flex-wrap:wrap;gap:clamp(4px,1vw,8px)}
+.sp-opt{padding:clamp(6px,1vw,10px) clamp(10px,2vw,16px);border:2px solid #444;border-radius:8px;background:var(--bg);color:var(--dim);cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(13px,2.2vw,17px);font-weight:600;transition:all .15s}
+.sp-opt.on{border-color:var(--green);color:var(--green);background:rgba(0,230,118,.1)}
+.sp-opt:hover{border-color:#666}
+.sp-cnt{display:flex;align-items:center;gap:clamp(10px,2vw,18px);justify-content:center}
+.sp-cnt-btn{width:clamp(40px,7vw,56px);height:clamp(40px,7vw,56px);border-radius:50%;border:2px solid #555;background:#222;color:#fff;font-size:clamp(22px,4vw,32px);cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;transition:all .15s}
+.sp-cnt-btn:hover{border-color:var(--green);background:#333}
+.sp-cnt-btn:active{transform:scale(.9)}
+.sp-cnt-val{font-family:'Teko',sans-serif;font-size:clamp(36px,7vw,56px);color:#fff;min-width:clamp(40px,7vw,60px);text-align:center;font-weight:500}
+.sp-presets{width:100%;max-width:700px}
+.sp-presets-label{font-family:'Noto Sans KR',sans-serif;font-size:clamp(13px,2.2vw,17px);color:#888;margin-bottom:clamp(6px,1vw,10px);font-weight:600;letter-spacing:1px}
+.sp-chips{display:flex;flex-wrap:wrap;gap:clamp(4px,1vw,8px)}
+.sp-chip{display:flex;align-items:center;gap:4px;padding:clamp(4px,.8vw,8px) clamp(8px,1.5vw,14px);border:1px solid #555;border-radius:20px;background:#222;color:#ccc;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(12px,2vw,15px);font-weight:600;transition:all .15s}
+.sp-chip:hover{border-color:var(--green);color:var(--green)}
+.sp-chip-del{background:none;border:none;color:#888;cursor:pointer;font-size:clamp(14px,2.2vw,18px);line-height:1;padding:0 2px;transition:color .15s}
+.sp-chip-del:hover{color:#ff4444}
+.sp-chip-save{padding:clamp(4px,.8vw,8px) clamp(8px,1.5vw,14px);border:1px dashed #555;border-radius:20px;background:none;color:#666;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(12px,2vw,15px);font-weight:600;transition:all .15s}
+.sp-chip-save:hover{border-color:var(--green);color:var(--green)}
+.sp-summary{font-family:'Noto Sans KR',sans-serif;font-size:clamp(14px,2.5vw,20px);color:#aaa;text-align:center;letter-spacing:1px}
+.sp-summary b{color:#fff}
+.sp-start{width:100%;max-width:700px;padding:clamp(14px,2.5vw,22px);border:none;border-radius:clamp(10px,1.5vw,16px);background:var(--green);color:#000;font-family:'Orbitron',monospace;font-size:clamp(20px,4vw,32px);font-weight:900;cursor:pointer;letter-spacing:4px;transition:all .15s;text-transform:uppercase}
+.sp-start:hover{filter:brightness(1.1);transform:scale(1.02)}
+.sp-start:active{transform:scale(.97)}
+#sparRun{align-items:stretch;justify-content:flex-start;gap:0;padding:0;height:100%;position:relative;background:#000}
+.spr-top{display:flex;align-items:center;justify-content:space-between;padding:clamp(8px,1.5vw,14px) clamp(10px,2vw,20px);background:#111;border-bottom:1px solid #333;flex-shrink:0;z-index:5}
+.spr-top-btn{background:#333;border:none;color:#fff;width:clamp(40px,6vw,56px);height:clamp(40px,6vw,56px);border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.spr-top-btn:hover{background:#444}.spr-top-btn:active{transform:scale(.93)}
+.spr-top-btn svg{width:clamp(18px,3vw,28px);height:clamp(18px,3vw,28px);stroke:#fff;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.spr-round{font-family:'Orbitron',monospace;font-size:clamp(16px,3vw,26px);color:#fff;letter-spacing:3px}
+.spr-area{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:clamp(8px,1.5vh,16px);padding:clamp(10px,2vw,20px)}
+#spState{font-family:'Orbitron',monospace;font-size:clamp(24px,5vw,48px);font-weight:900;letter-spacing:6px;transition:color .3s}
+.sp-fight{color:var(--green);text-shadow:0 0 20px rgba(0,230,118,.6)}
+.sp-rest{color:var(--yellow);text-shadow:0 0 20px rgba(255,214,0,.6)}
+.sp-done{color:var(--red);text-shadow:0 0 20px rgba(255,26,26,.6)}
+.sp-ready{color:#888}
+.sp-paused{color:var(--red);text-shadow:0 0 20px rgba(255,26,26,.4)}
+#spTimer{font-family:'Teko',sans-serif;font-size:clamp(140px,42vw,480px);font-weight:500;color:#fff;line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums;text-align:center;transition:color .3s}
+.spr-info{font-family:'Noto Sans KR',sans-serif;font-size:clamp(14px,2.5vw,20px);color:#888;text-align:center;letter-spacing:1px}
+.spr-prog-wrap{width:90%;max-width:600px;height:clamp(6px,1.2vw,10px);background:#333;border-radius:99px;overflow:hidden}
+.spr-prog{height:100%;border-radius:99px;transition:width .15s linear,background .3s;background:var(--green)}
+.spr-prog.rest{background:var(--yellow)}
+.spr-total{font-family:'Rajdhani',sans-serif;font-size:clamp(14px,2.5vw,20px);color:#666;letter-spacing:2px}
+@media(max-width:500px){.sp-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -362,7 +431,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 <div class="pg-body"><div class="home-logo"><h1 data-text="BJJ.Score">BJJ.Score</h1></div>
 <div class="hcards"><div class="hcard hct" onclick="goS('tsel')"><svg class="hi-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4a2 2 0 01-2-2V5a2 2 0 012-2h2M18 9h2a2 2 0 002-2V5a2 2 0 00-2-2h-2M6 3h12v6a6 6 0 01-12 0V3zM9 21h6M12 15v6"/></svg><h2>시합용 점수판</h2><p>기본형 · 상세형</p></div>
 <div class="hcard hcr" onclick="launchTR()"><svg class="hi-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L8 6v4l4 2 4-2V6L12 2z"/><path d="M8 10v8l4 4 4-4v-8"/><path d="M10 8h4"/></svg><h2>학습용 점수판</h2><p>연습 경기 및 점수 체계 학습용</p></div>
-</div></div><p class="home-bottom-text">Brazilian Jiu-Jitsu Scoreboard</p></div></div>
+<div class="hcard hcs" onclick="goS('sparSet')"><svg class="hi-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/><path d="M17 17l3 3"/><polygon points="20 20 23 18 21 23" fill="currentColor" stroke="none"/></svg><h2>스파링 타이머</h2><p>라운드 · 휴식 · 인터벌</p></div>
+</div></div><div class="home-bottom"><p class="home-bottom-text">Brazilian Jiu-Jitsu Scoreboard</p>
+<div class="home-contact"><div class="home-contact-label">개발자에게 문의하기</div><a class="home-contact-link" href="https://instagram.com/evan_xyz" target="_blank"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>@evan_xyz</a></div></div></div></div>
 
 <!-- TYPE SELECT -->
 <div id="tsel" class="scr" style="position:relative;background:radial-gradient(ellipse at 30% 50%,rgba(255,26,26,.06),transparent 50%),radial-gradient(ellipse at 70% 50%,rgba(68,138,255,.06),transparent 50%),var(--bg)">
@@ -387,7 +458,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 <div class="st"><div class="st-hdr gA"><span>PLAYER</span><span>TOTAL</span><span>A</span><span>P</span></div>
 <div class="st-row gA r1"><div class="cl cl-nm" contenteditable="true" spellcheck="false" id="nA1">선수 1</div><div class="cl cl-sc" onclick="cCk(1,1)" oncontextmenu="cCk(1,-1);return false" id="c1T">0</div><div class="cl cl-adv" onclick="cAv(1)" oncontextmenu="cAvM(1);return false" id="c1A">0</div><div class="cl cl-pen" onclick="cPn(1)" oncontextmenu="cPnM(1);return false" id="c1P">0</div></div>
 <div class="st-row gA r2"><div class="cl cl-nm" contenteditable="true" spellcheck="false" id="nA2">선수 2</div><div class="cl cl-sc" onclick="cCk(2,1)" oncontextmenu="cCk(2,-1);return false" id="c2T">0</div><div class="cl cl-adv" onclick="cAv(2)" oncontextmenu="cAvM(2);return false" id="c2A">0</div><div class="cl cl-pen" onclick="cPn(2)" oncontextmenu="cPnM(2);return false" id="c2P">0</div></div></div>
-<div class="tms" onclick="tog()"><div class="tmv" id="tmA">5:00</div><div class="tm-edit" id="teA" onclick="event.stopPropagation()"><div class="te-presets"><button onclick="presetTm('A',4)">4</button><button onclick="presetTm('A',5)">5</button><button onclick="presetTm('A',6)">6</button><button onclick="presetTm('A',7)">7</button><button onclick="presetTm('A',8)">8</button><button onclick="presetTm('A',10)">10</button></div><div class="te-custom"><input id="teAm" type="number" min="0" max="59" value="5" placeholder="분"><span>:</span><input id="teAs" type="number" min="0" max="59" value="00" placeholder="초"><button onclick="applyTm('A')">SET</button></div></div><button class="tm-time-btn" onclick="event.stopPropagation();openTmEdit('A')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></button></div></div>
+<div class="tms" onclick="tog()"><div class="tmv" id="tmA">5:00</div><div class="tm-edit" id="teA" onclick="event.stopPropagation()"><div class="te-presets"><button onclick="presetTm('A',4)">4분</button><button onclick="presetTm('A',5)">5분</button><button onclick="presetTm('A',6)">6분</button><button onclick="presetTm('A',7)">7분</button><button onclick="presetTm('A',8)">8분</button><button onclick="presetTm('A',10)">10분</button></div><div class="te-custom"><input id="teAm" type="number" min="0" max="59" value="05" placeholder="분"><span>:</span><input id="teAs" type="number" min="0" max="59" value="00" placeholder="초"><button onclick="applyTm('A')">SET</button></div></div><button class="tm-time-btn" onclick="event.stopPropagation();openTmEdit('A')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></button></div></div>
 
 
 <!-- BOARD C -->
@@ -395,7 +466,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 <div class="st"><div class="st-hdr gC"><span>PLAYER</span><span>2</span><span>3</span><span>4</span><span>TOTAL</span><span>A</span><span>P</span></div>
 <div class="st-row gC r1"><div class="cl cl-nm" contenteditable="true" spellcheck="false" id="nC1">선수 1</div><div class="cl cl-sc" onclick="aP(1,2)" oncontextmenu="aPM(1,2);return false" id="a12">0</div><div class="cl cl-sc" onclick="aP(1,3)" oncontextmenu="aPM(1,3);return false" id="a13">0</div><div class="cl cl-sc" onclick="aP(1,4)" oncontextmenu="aPM(1,4);return false" id="a14">0</div><div class="cl cl-tot" id="a1T">0</div><div class="cl cl-adv" onclick="aAv(1)" oncontextmenu="aAvM(1);return false" id="a1A">0</div><div class="cl cl-pen" onclick="aPn(1)" oncontextmenu="aPnM(1);return false" id="a1P">0</div></div>
 <div class="st-row gC r2"><div class="cl cl-nm" contenteditable="true" spellcheck="false" id="nC2">선수 2</div><div class="cl cl-sc" onclick="aP(2,2)" oncontextmenu="aPM(2,2);return false" id="a22">0</div><div class="cl cl-sc" onclick="aP(2,3)" oncontextmenu="aPM(2,3);return false" id="a23">0</div><div class="cl cl-sc" onclick="aP(2,4)" oncontextmenu="aPM(2,4);return false" id="a24">0</div><div class="cl cl-tot" id="a2T">0</div><div class="cl cl-adv" onclick="aAv(2)" oncontextmenu="aAvM(2);return false" id="a2A">0</div><div class="cl cl-pen" onclick="aPn(2)" oncontextmenu="aPnM(2);return false" id="a2P">0</div></div></div>
-<div class="tms" onclick="tog()"><div class="tmv" id="tmC">5:00</div><div class="tm-edit" id="teC" onclick="event.stopPropagation()"><div class="te-presets"><button onclick="presetTm('C',4)">4</button><button onclick="presetTm('C',5)">5</button><button onclick="presetTm('C',6)">6</button><button onclick="presetTm('C',7)">7</button><button onclick="presetTm('C',8)">8</button><button onclick="presetTm('C',10)">10</button></div><div class="te-custom"><input id="teCm" type="number" min="0" max="59" value="5" placeholder="분"><span>:</span><input id="teCs" type="number" min="0" max="59" value="00" placeholder="초"><button onclick="applyTm('C')">SET</button></div></div><button class="tm-time-btn" onclick="event.stopPropagation();openTmEdit('C')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></button></div></div>
+<div class="tms" onclick="tog()"><div class="tmv" id="tmC">5:00</div><div class="tm-edit" id="teC" onclick="event.stopPropagation()"><div class="te-presets"><button onclick="presetTm('C',4)">4분</button><button onclick="presetTm('C',5)">5분</button><button onclick="presetTm('C',6)">6분</button><button onclick="presetTm('C',7)">7분</button><button onclick="presetTm('C',8)">8분</button><button onclick="presetTm('C',10)">10분</button></div><div class="te-custom"><input id="teCm" type="number" min="0" max="59" value="05" placeholder="분"><span>:</span><input id="teCs" type="number" min="0" max="59" value="00" placeholder="초"><button onclick="applyTm('C')">SET</button></div></div><button class="tm-time-btn" onclick="event.stopPropagation();openTmEdit('C')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></button></div></div>
 
 
 
@@ -433,15 +504,45 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 <h3><svg style="width:18px;height:18px;vertical-align:middle;margin-right:4px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 시간 설정</h3>
 <div class="tr-time-section">
 <div class="tr-time-label">시간 프리셋</div>
-<div class="te-presets"><button onclick="presetTm('TR',4)">4</button><button onclick="presetTm('TR',5)">5</button><button onclick="presetTm('TR',6)">6</button><button onclick="presetTm('TR',7)">7</button><button onclick="presetTm('TR',8)">8</button><button onclick="presetTm('TR',10)">10</button></div>
-<div class="te-custom"><input id="teTRm" type="number" min="0" max="59" value="5" placeholder="분"><span>:</span><input id="teTRs" type="number" min="0" max="59" value="00" placeholder="초"><button onclick="applyTm('TR')">SET</button></div>
+<div class="te-presets"><button onclick="presetTm('TR',4)">4분</button><button onclick="presetTm('TR',5)">5분</button><button onclick="presetTm('TR',6)">6분</button><button onclick="presetTm('TR',7)">7분</button><button onclick="presetTm('TR',8)">8분</button><button onclick="presetTm('TR',10)">10분</button></div>
+<div class="te-custom"><input id="teTRm" type="number" min="0" max="59" value="05" placeholder="분"><span>:</span><input id="teTRs" type="number" min="0" max="59" value="00" placeholder="초"><button onclick="applyTm('TR')">SET</button></div>
 </div>
 <div class="tr-time-section">
-<div class="tr-time-label">IBJJF 벨트별</div>
+<div class="tr-time-label">IBJJF 벨트별 <span style="font-size:0.8em;color:#666;font-weight:400;letter-spacing:1px">어덜트(성인부) 기준</span></div>
 <div class="te-belt-row"><button class="belt-btn belt-white" onclick="beltTm('white')"><span class="belt-icon"></span>화이트<span class="belt-time">5분</span></button><button class="belt-btn belt-blue" onclick="beltTm('blue')"><span class="belt-icon"></span>블루<span class="belt-time">6분</span></button><button class="belt-btn belt-purple" onclick="beltTm('purple')"><span class="belt-icon"></span>퍼플<span class="belt-time">7분</span></button><button class="belt-btn belt-brown" onclick="beltTm('brown')"><span class="belt-icon"></span>브라운<span class="belt-time">8분</span></button><button class="belt-btn belt-black" onclick="beltTm('black')"><span class="belt-icon"></span>블랙<span class="belt-time">10분</span></button></div>
 </div>
 </div>
 </div>
+
+<!-- SPARRING TIMER SETTINGS -->
+<div id="sparSet" class="scr">
+<div class="sp-body" style="padding-top:0">
+<div class="pg-top" style="background:none;border:none;box-shadow:none;width:100%"><div class="pt-l"><button class="h-btn" onclick="goS('home')"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 12v7a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-7"/></svg></button><button class="h-btn" onclick="goS('home')"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button></div><div class="pt-c"><button class="h-btn home-lamp" onclick="openSettings()"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button></div></div>
+<div class="spar-title"><h1 data-text="SPARRING TIMER">SPARRING TIMER</h1></div>
+<div class="sp-grid">
+<div class="sp-panel"><div class="sp-panel-label">라운드 시간</div><div class="sp-opts" id="spRndOpts">
+<button class="sp-opt" onclick="spSetRnd(180)">3분</button><button class="sp-opt" onclick="spSetRnd(240)">4분</button><button class="sp-opt on" onclick="spSetRnd(300)">5분</button><button class="sp-opt" onclick="spSetRnd(360)">6분</button><button class="sp-opt" onclick="spSetRnd(420)">7분</button><button class="sp-opt" onclick="spSetRnd(480)">8분</button><button class="sp-opt" onclick="spSetRnd(600)">10분</button></div></div>
+<div class="sp-panel"><div class="sp-panel-label">휴식 시간</div><div class="sp-opts" id="spRestOpts">
+<button class="sp-opt" onclick="spSetRest(30)">30초</button><button class="sp-opt" onclick="spSetRest(45)">45초</button><button class="sp-opt on" onclick="spSetRest(60)">1분</button><button class="sp-opt" onclick="spSetRest(90)">1분30초</button><button class="sp-opt" onclick="spSetRest(120)">2분</button></div></div>
+<div class="sp-panel"><div class="sp-panel-label">라운드 수</div><div class="sp-cnt"><button class="sp-cnt-btn" onclick="spSetRounds(-1)">&minus;</button><span class="sp-cnt-val" id="spRndCnt">5</span><button class="sp-cnt-btn" onclick="spSetRounds(1)">+</button></div></div>
+<div class="sp-panel"><div class="sp-panel-label">경고음</div><div class="sp-opts" id="spWarnOpts">
+<button class="sp-opt" onclick="spSetWarn(0)">없음</button><button class="sp-opt on" onclick="spSetWarn(10)">10초</button><button class="sp-opt" onclick="spSetWarn(30)">30초</button></div></div>
+</div>
+<div class="sp-presets"><div class="sp-presets-label">프리셋</div><div class="sp-chips" id="spChips"></div></div>
+<div class="sp-summary" id="spSummary"></div>
+<button class="sp-start" onclick="spLaunch()">START</button>
+</div></div>
+
+<!-- SPARRING TIMER RUN -->
+<div id="sparRun" class="scr">
+<div class="spr-top"><button class="spr-top-btn" onclick="spStop();goS('sparSet')"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><span class="spr-round" id="spRoundTxt">Round 1 / 5</span><button class="spr-top-btn" onclick="spReset()"><svg viewBox="0 0 24 24"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 105.64-11.36L3 10"/></svg></button></div>
+<div class="spr-area" onclick="spTog()">
+<div id="spState" class="sp-ready">준비</div>
+<div id="spTimer">5:00</div>
+<div class="spr-info" id="spInfo"></div>
+<div class="spr-prog-wrap"><div class="spr-prog" id="spProg" style="width:100%"></div></div>
+<div class="spr-total" id="spTotal"></div>
+</div></div>
 
 <!-- SETTINGS -->
 <div class="settings-overlay" id="settingsPanel" onclick="if(event.target===this)closeSettings()">
@@ -461,8 +562,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 <div class="s-sub" style="margin-top:10px">타이머 소수점 표시 시점</div>
 <div style="display:flex;align-items:center;gap:6px;margin-top:6px;flex-wrap:wrap">
 <button class="s-opt" data-th="0" onclick="setDecThAlways()" id="decThAlways">항시</button>
-<select class="s-sel" id="decThMin" onchange="setDecThFromSel()"></select><span style="color:#888;font-size:clamp(14px,2.5vw,18px)">분</span>
-<select class="s-sel" id="decThSec" onchange="setDecThFromSel()"></select><span style="color:#888;font-size:clamp(14px,2.5vw,18px)">초 이하</span>
+<input type="number" class="s-input" id="decThMin" min="0" max="59" value="0" oninput="setDecThFromInput()"><span style="color:#888;font-size:clamp(14px,2.5vw,18px)">분</span>
+<input type="number" class="s-input" id="decThSec" min="0" max="59" value="10" oninput="setDecThFromInput()"><span style="color:#888;font-size:clamp(14px,2.5vw,18px)">초 이하</span>
 </div>
 <div class="s-note" id="decNote">※ 10분 이상에서는 가독성을 위해 소수점이 표시되지 않습니다</div>
 </div></div>
@@ -486,15 +587,12 @@ function updSndIcon(){var btn=document.getElementById('sndTogBtn');
   btn.classList.remove('on','off');btn.classList.add(SET.sound?'on':'off')}
 function testSound(){if(!SET.sound)return;beepFlat(3000,0.3)}
 function setDec(n){SET.dec=n;document.querySelectorAll('.s-opt[data-dec]').forEach(function(b){b.classList.toggle('on',parseInt(b.dataset.dec)===n)})}
-function setDecThFromSel(){var m=parseInt(document.getElementById('decThMin').value),s=parseInt(document.getElementById('decThSec').value);
+function setDecThFromInput(){var m=parseInt(document.getElementById('decThMin').value)||0,s=parseInt(document.getElementById('decThSec').value)||0;
   SET.decTh=m*60+s;document.getElementById('decThAlways').classList.remove('on');document.getElementById('decThMin').disabled=false;document.getElementById('decThSec').disabled=false;document.getElementById('decNote').classList.remove('on')}
 function setDecThAlways(){var btn=document.getElementById('decThAlways'),mn=document.getElementById('decThMin'),sc=document.getElementById('decThSec');
-  if(btn.classList.contains('on')){btn.classList.remove('on');mn.disabled=false;sc.disabled=false;setDecThFromSel();document.getElementById('decNote').classList.remove('on')}
+  if(btn.classList.contains('on')){btn.classList.remove('on');mn.disabled=false;sc.disabled=false;setDecThFromInput();document.getElementById('decNote').classList.remove('on')}
   else{SET.decTh=0;btn.classList.add('on');mn.disabled=true;sc.disabled=true;document.getElementById('decNote').classList.add('on')}}
-function initDecTh(){var sm=document.getElementById('decThMin'),ss=document.getElementById('decThSec');
-  for(var i=0;i<=20;i++){var o=document.createElement('option');o.value=i;o.textContent=i;sm.appendChild(o)}
-  for(var i=0;i<60;i+=5){var o=document.createElement('option');o.value=i;o.textContent=String(i).padStart(2,'0');ss.appendChild(o)}
-  sm.value=0;ss.value=10}
+function initDecTh(){document.getElementById('decThMin').value=0;document.getElementById('decThSec').value=10}
 initDecTh();
 setTimeout(function(){updSndIcon()},50);
 
@@ -511,7 +609,7 @@ function sndEnd(){if(!SET.sound)return;beepFlat(3000,0.4);setTimeout(function(){
 function vb(){navigator.vibrate&&navigator.vibrate(25)}
 function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
 function gN(p){var m={TA:['nA1','nA2'],TC:['nC1','nC2'],TR:['trN1','trN2']};var k=MD==='TR'?'TR':'T'+TP;return(document.getElementById(m[k][p-1]).textContent||'').trim()||'선수 '+p}
-function goS(id){document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on')});document.getElementById(id).classList.add('on');setTimeout(fitNames,50)}
+function goS(id){document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on')});document.getElementById(id).classList.add('on');setTimeout(function(){fitNames();fitBoard()},50)}
 function backSel(){pau();resetSt();refAll();_snap=null;updUndoBtn();document.getElementById('wo').classList.remove('on');goS('tsel')}
 function backHome(){pau();resetSt();refAll();_snap=null;updUndoBtn();document.getElementById('wo').classList.remove('on');goS('home')}
 function goBackFromWo(){document.getElementById('wo').classList.remove('on');FIN=false;updTU();refAll()}
@@ -522,10 +620,10 @@ function initTmEdits(){['A','C','TR'].forEach(function(t){var sm=document.getEle
   for(var i=0;i<=20;i++){var o=document.createElement('option');o.value=i;o.textContent=i;sm.appendChild(o)}sm.value=5;
   for(var i=0;i<60;i+=5){var o=document.createElement('option');o.value=i;o.textContent=String(i).padStart(2,'0');ss.appendChild(o)}ss.value=0})}
 initTmEdits();
-function openTmEdit(t){if(RUN)return;if(t==='TR'){pau();var el=document.getElementById('teTR');if(el.classList.contains('on')){el.classList.remove('on');return}el.classList.add('on');document.getElementById('teTRm').value=Math.floor(TT/60);document.getElementById('teTRs').value=TT%60;return}var el=document.getElementById('te'+t);
+function openTmEdit(t){if(RUN)return;if(t==='TR'){pau();var el=document.getElementById('teTR');if(el.classList.contains('on')){el.classList.remove('on');return}el.classList.add('on');document.getElementById('teTRm').value=String(Math.floor(TT/60)).padStart(2,'0');document.getElementById('teTRs').value=String(TT%60).padStart(2,'0');return}var el=document.getElementById('te'+t);
   if(el.classList.contains('on')){el.classList.remove('on');document.getElementById('tm'+t).style.display='';return}
   document.getElementById('tm'+t).style.display='none';el.classList.add('on');
-  document.getElementById('te'+t+'m').value=Math.floor(TT/60);document.getElementById('te'+t+'s').value=TT%60}
+  document.getElementById('te'+t+'m').value=String(Math.floor(TT/60)).padStart(2,'0');document.getElementById('te'+t+'s').value=String(TT%60).padStart(2,'0')}
 function closeTrEdit(){document.getElementById('teTR').classList.remove('on')}
 function presetTm(t,m){TT=m*60;RM=TT;msRM=0;document.getElementById('te'+t).classList.remove('on');if(t!=='TR')document.getElementById('tm'+t).style.display='';updTU()}
 function applyTm(t){var m=parseInt(document.getElementById('te'+t+'m').value),s=parseInt(document.getElementById('te'+t+'s').value);
@@ -541,13 +639,13 @@ function launchTR(){MD='TR';TT=300;RM=300;msRM=0;resetSt();
 function gTE(){return MD==='TR'?document.getElementById('tmTR'):document.getElementById('tm'+TP)}
 function sndStopIfMid(){if(RM>0&&RM<TT)sndStop()}
 function tog(){if(FIN)return;if(document.querySelector('.tm-edit.on'))return;if(AC.state==='suspended')AC.resume();RUN?pau():sta()}
-function sta(){if(RM<=0&&msRM<=0)return;RUN=true;LK=performance.now();sndStart();
+function sta(){if(RM<=0&&msRM<=0)return;RUN=true;LK=performance.now();sndStart();var a=document.querySelector('.scr.on');if(a){var h=a.querySelector('.hdr');if(h)h.style.display='none'}
   IV=setInterval(function(){var now=performance.now(),elapsed=now-LK;LK=now;
     msRM-=elapsed;while(msRM<0&&RM>0){RM--;msRM+=1000}
     if(RM<=0&&msRM<=0){RM=0;msRM=0;pau();sndStart()}
     updTU()
   },50)}
-function pau(){RUN=false;clearInterval(IV);sndStopIfMid();updTU()}
+function pau(){RUN=false;clearInterval(IV);sndStopIfMid();updTU();var a=document.querySelector('.scr.on');if(a){var h=a.querySelector('.hdr');if(h)h.style.display=''}}
 function _tw(str){return str.split('').map(function(c){return c===':'?'<span style="display:inline-block;width:.35em;text-align:center">'+c+'</span>':c==='.'?'<span style="display:inline-block;width:.15em;text-align:center">'+c+'</span>':'<span style="display:inline-block;width:.47em;text-align:center">'+c+'</span>'}).join('')}
 function updTU(){var e=gTE();
   var showDec=SET.dec>0&&(SET.decTh===0||RM<SET.decTh)&&(RUN||RM>0)&&RM<600;
@@ -558,12 +656,16 @@ function updTU(){var e=gTE();
   else if(!RUN){e.classList.add('stopped')}
   else if(RM<=10){e.classList.add('crit')}}
 var _snap=null;
-function rst(){pau();_snap={RM:RM,msRM:msRM,FIN:FIN,S:JSON.parse(JSON.stringify(S)),HI:HI.slice(),LOG:LOG.slice(),RUN:false};RM=TT;msRM=0;FIN=false;S={1:{p2:0,p3:0,p4:0,t:0,pe:0,ad:0,bonus:0},2:{p2:0,p3:0,p4:0,t:0,pe:0,ad:0,bonus:0}};HI=[];LOG=[];updTU();refAll();updUndoBtn()}
-function undoRst(){if(!_snap)return;RM=_snap.RM;msRM=_snap.msRM;FIN=_snap.FIN;S=JSON.parse(JSON.stringify(_snap.S));HI=_snap.HI.slice();LOG=_snap.LOG?_snap.LOG.slice():[];_snap=null;updTU();refAll();updUndoBtn()}
+function rst(){pau();_snap={RM:RM,msRM:msRM,FIN:FIN,S:JSON.parse(JSON.stringify(S)),TRC:JSON.parse(JSON.stringify(TRC)),HI:HI.slice(),LOG:LOG.slice(),RUN:false};RM=TT;msRM=0;FIN=false;S={1:{p2:0,p3:0,p4:0,t:0,pe:0,ad:0,bonus:0},2:{p2:0,p3:0,p4:0,t:0,pe:0,ad:0,bonus:0}};TRC={1:{td:0,sw:0,kob:0,gp:0,mtbk:0},2:{td:0,sw:0,kob:0,gp:0,mtbk:0}};HI=[];LOG=[];updTU();refAll();updUndoBtn()}
+function undoRst(){if(!_snap)return;RM=_snap.RM;msRM=_snap.msRM;FIN=_snap.FIN;S=JSON.parse(JSON.stringify(_snap.S));TRC=_snap.TRC?JSON.parse(JSON.stringify(_snap.TRC)):TRC;HI=_snap.HI.slice();LOG=_snap.LOG?_snap.LOG.slice():[];_snap=null;updTU();refAll();updUndoBtn()}
 function updUndoBtn(){document.querySelectorAll('.h-btn-undo').forEach(function(b){b.disabled=!_snap})}
 
-function addLog(p,desc){var elapsed=TT-RM;var m=Math.floor(elapsed/60),s=elapsed%60;LOG.push({time:m+':'+String(s).padStart(2,'0'),elapsed:elapsed,player:gN(p),pNum:p,desc:desc})}
-function mergeLog(){if(MD==='TR')return LOG;var ml=[];for(var i=0;i<LOG.length;i++){var l=LOG[i];var isNum=/^[+-]\d+$/.test(l.desc);
+function addLog(p,desc,fromP){var elapsed=TT-RM;var m=Math.floor(elapsed/60),s=elapsed%60;var entry={time:m+':'+String(s).padStart(2,'0'),elapsed:elapsed,player:gN(p),pNum:p,desc:desc};if(fromP){entry.linked=true;entry.fromP=fromP}LOG.push(entry)}
+function mergeLog(){if(MD==='TR')return LOG;var ml=[];for(var i=0;i<LOG.length;i++){var l=LOG[i];
+  if(l.linked){
+    if(ml.length>0&&ml[ml.length-1].desc==='P +1'&&ml[ml.length-1].pNum===l.fromP&&ml[ml.length-1].elapsed===l.elapsed)ml.pop();
+    ml.push({time:l.time,elapsed:l.elapsed,_start:l.elapsed,player:l.player,pNum:l.pNum,desc:l.desc,linked:true,fromP:l.fromP});continue}
+  var isNum=/^[+-]\d+$/.test(l.desc);
   if(ml.length>0&&isNum){var prev=ml[ml.length-1];var prevNum=/^[+-]\d+$/.test(prev.desc);
     if(prevNum&&prev.pNum===l.pNum&&(l.elapsed-prev._start)<=2){var pv=parseInt(prev.desc),cv=parseInt(l.desc),sum=pv+cv;
       prev.desc=sum>=0?'+'+sum:''+sum;prev.time=l.time;continue}}
@@ -571,16 +673,33 @@ function mergeLog(){if(MD==='TR')return LOG;var ml=[];for(var i=0;i<LOG.length;i
 function openLog(){pau();var el=document.getElementById('logList');
   if(LOG.length===0){el.innerHTML='<div class="log-empty">기록 없음</div>'}
   else{var ml=mergeLog();
-    var timeRow='',p1Row='',p2Row='';
+    var timeRow='',p1Row='',p2Row='',p1Link=false,p2Link=false;
     for(var i=0;i<ml.length;i++){var l=ml[i];
+      if(l.linked){
+        var recvP=l.pNum,penP=l.fromP;
+        var recvCls=l.desc.indexOf('A')===0?'adv-active':'active';
+        timeRow+='<div class="log-tl-cell-time">'+l.time+'</div>';
+        var svgDown='<svg class="link-arrow" viewBox="0 0 20 14"><polygon points="10,14 0,0 20,0" fill="#fff" stroke="#000" stroke-width="2" stroke-linejoin="round"/></svg>';
+        var svgUp='<svg class="link-arrow" viewBox="0 0 20 14"><polygon points="10,0 0,14 20,14" fill="#fff" stroke="#000" stroke-width="2" stroke-linejoin="round"/></svg>';
+        if(penP===1){
+          p1Link=true;
+          p1Row+='<div class="log-tl-cell pen-active log-link-pen link-down">P +1'+svgDown+'</div>';
+          p2Row+='<div class="log-tl-cell '+recvCls+'">'+l.desc+'</div>';
+        }else{
+          p2Link=true;
+          p1Row+='<div class="log-tl-cell '+recvCls+'">'+l.desc+'</div>';
+          p2Row+='<div class="log-tl-cell pen-active log-link-pen link-up">P +1'+svgUp+'</div>';
+        }
+      }else{
       var cls=l.desc.indexOf('-')>-1?'minus':l.desc.indexOf('P')===0&&l.desc.indexOf('+')>-1?'pen':l.desc.indexOf('A')===0&&l.desc.indexOf('+')>-1?'adv':'plus';
       var isP1=l.pNum===1;
       var ac=cls==='minus'?'minus-active':cls==='pen'?'pen-active':cls==='adv'?'adv-active':'active';
       timeRow+='<div class="log-tl-cell-time">'+l.time+'</div>';
       p1Row+='<div class="log-tl-cell '+(isP1?ac:'')+'">'+(isP1?l.desc:'')+'</div>';
       p2Row+='<div class="log-tl-cell '+(isP1?'':ac)+'">'+(isP1?'':l.desc)+'</div>';
+      }
     }
-    el.innerHTML='<div class="log-tl-wrap"><div class="log-tl-labels"><div class="log-tl-label-time">TIME</div><div class="log-tl-label lp1">'+gN(1)+'</div><div class="log-tl-label lp2">'+gN(2)+'</div></div><div class="log-tl-scroll"><div class="log-tl-row-time">'+timeRow+'</div><div class="log-tl-row rp1">'+p1Row+'</div><div class="log-tl-row rp2">'+p2Row+'</div></div></div>';
+    el.innerHTML='<div class="log-tl-wrap"><div class="log-tl-labels"><div class="log-tl-label-time">TIME</div><div class="log-tl-label lp1">'+gN(1)+'</div><div class="log-tl-label lp2">'+gN(2)+'</div></div><div class="log-tl-scroll"><div class="log-tl-row-time">'+timeRow+'</div><div class="log-tl-row rp1'+(p1Link?' log-row-linked':'')+'">'+p1Row+'</div><div class="log-tl-row rp2'+(p2Link?' log-row-linked':'')+'">'+p2Row+'</div></div></div>';
     var sc=el.querySelector('.log-tl-scroll');if(sc)sc.scrollLeft=sc.scrollWidth}
   var sp=document.getElementById('logScorePanel');
   var grd=TP==='C'?'grid-template-columns:2.2fr .7fr .7fr .7fr 1fr .6fr .6fr':'grid-template-columns:2.2fr 1.2fr .7fr .7fr';
@@ -594,8 +713,8 @@ function openLog(){pau();var el=document.getElementById('logList');
 function closeLog(){document.getElementById('logPanel').classList.remove('on')}
 var _pendingDQ=0;
 function chkPen(p){if(S[p].pe>4)S[p].pe=4;var opp=p===1?2:1;
-  if(S[p].pe===2){S[opp].ad++;addLog(opp,'A +1 (패널티 누적)')}
-  if(S[p].pe===3){S[opp].bonus+=2;S[opp].t+=2;addLog(opp,'+2 (패널티 누적)')}
+  if(S[p].pe===2){S[opp].ad++;addLog(opp,'A +1',p)}
+  if(S[p].pe===3){S[opp].bonus+=2;S[opp].t+=2;addLog(opp,'+2',p)}
   if(S[p].pe>=4){_pendingDQ=p;document.getElementById('dqConfirm').classList.add('on');return true}
   return false}
 function confirmDQ(){document.getElementById('dqConfirm').classList.remove('on');var p=_pendingDQ;_pendingDQ=0;pau();FIN=true;addLog(p,'실격 (DQ)');showDQ(p);refAll()}
@@ -669,7 +788,14 @@ document.querySelectorAll('.cl-nm,.trt-nm').forEach(function(el){
   el.addEventListener('dblclick',function(e){e.stopPropagation();this.textContent='';this.focus()})});
 var _fitObs=new MutationObserver(function(){fitNames()});
 document.querySelectorAll('.scr').forEach(function(s){_fitObs.observe(s,{attributes:true,attributeFilter:['class']})});
-window.addEventListener('resize',fitNames);setTimeout(fitNames,100);
+var _fitT;
+function fitBoard(){clearTimeout(_fitT);_fitT=setTimeout(function(){
+  var el=document.documentElement;el.style.zoom='1';
+  requestAnimationFrame(function(){
+    var vw=el.clientWidth,vh=el.clientHeight;
+    var s=Math.min(vw/1280,vh/720,1);
+    el.style.zoom=String(s)})},50)}
+window.addEventListener('resize',function(){fitNames();fitBoard()});setTimeout(function(){fitNames();fitBoard()},100);
 
 
 function initCardEffects(cardSel){
@@ -803,8 +929,70 @@ document.addEventListener('keydown',function(e){
     if(a.id==='tsel')goS('home');
     else if(a.id==='trbd')backHome();
     else if(a.id==='bA'||a.id==='bC')backSel();
+    else if(a.id==='sparRun'){spStop();goS('sparSet')}
+    else if(a.id==='sparSet')goS('home');
     return}
-  var a=document.querySelector('.scr.on');if(a&&(a.id.startsWith('b')||a.id==='trbd')){if(e.code==='Space'){e.preventDefault();tog()}if(e.code==='KeyZ')undo();if(e.code==='F11'){e.preventDefault()}}})
+  var a=document.querySelector('.scr.on');if(!a)return;
+  if(a.id==='sparRun'){if(e.code==='Space'){e.preventDefault();spTog()}return}
+  if(a.id.startsWith('b')||a.id==='trbd'){if(e.code==='Space'){e.preventDefault();tog()}if(e.code==='KeyZ')undo();if(e.code==='ControlLeft'||e.code==='ControlRight'){var h=a.querySelector('.hdr');if(h)h.style.display=h.style.display==='none'?'':'none'}}})
+
+/* SPARRING TIMER */
+var SP={rndTime:300,restTime:60,rounds:5,warn:10,curRound:1,phase:'idle',rndRM:0,msRM2:0,spRUN:false,spIV:null,spLK:null};
+function spFmtTime(s){var m=Math.floor(s/60),sec=s%60;return m+':'+String(sec).padStart(2,'0')}
+function spUpdateSummary(){var total=SP.rndTime*SP.rounds+SP.restTime*(SP.rounds-1);
+  var rt=SP.rndTime>=60?(SP.rndTime/60)+'분':(SP.rndTime+'초');
+  var rest=SP.restTime>=60?(SP.restTime>=90?(Math.floor(SP.restTime/60))+'분'+(SP.restTime%60>0?(SP.restTime%60)+'초':''):(SP.restTime/60)+'분'):(SP.restTime+'초');
+  document.getElementById('spSummary').innerHTML='<b>'+rt+'</b> × <b>'+SP.rounds+'R</b> / 휴식 <b>'+rest+'</b> / 총 <b>'+Math.floor(total/60)+'분</b>'}
+function spSetRnd(v){SP.rndTime=v;document.querySelectorAll('#spRndOpts .sp-opt').forEach(function(b){
+  var bv=parseInt(b.textContent);b.classList.toggle('on',bv*60===v||(bv===v))});spUpdateSummary()}
+function spSetRest(v){SP.restTime=v;document.querySelectorAll('#spRestOpts .sp-opt').forEach(function(b){
+  var t=b.textContent,sv=0;if(t.indexOf('분')>-1&&t.indexOf('초')>-1){var ps=t.split('분');sv=parseInt(ps[0])*60+parseInt(ps[1])}
+  else if(t.indexOf('분')>-1)sv=parseInt(t)*60;else sv=parseInt(t);
+  b.classList.toggle('on',sv===v)});spUpdateSummary()}
+function spSetRounds(d){SP.rounds=Math.max(1,Math.min(30,SP.rounds+d));document.getElementById('spRndCnt').textContent=SP.rounds;spUpdateSummary()}
+function spSetWarn(v){SP.warn=v;document.querySelectorAll('#spWarnOpts .sp-opt').forEach(function(b){
+  var t=b.textContent,sv=0;if(t==='없음')sv=0;else sv=parseInt(t);
+  b.classList.toggle('on',sv===v)});spUpdateSummary()}
+function spSndWarn(){if(!SET.sound)return;beepFlat(1500,0.15);setTimeout(function(){beepFlat(1500,0.15)},200)}
+function spSndRest(){if(!SET.sound)return;beepFlat(2000,0.5)}
+function spUpdateDisplay(){var el=document.getElementById('spTimer'),st=document.getElementById('spState'),pr=document.getElementById('spProg'),info=document.getElementById('spInfo'),rndTxt=document.getElementById('spRoundTxt'),tot=document.getElementById('spTotal');
+  rndTxt.textContent='Round '+SP.curRound+' / '+SP.rounds;
+  if(SP.phase==='idle'){st.textContent='준비';st.className='sp-ready';el.innerHTML=_tw(spFmtTime(SP.rndTime));pr.style.width='100%';pr.className='spr-prog';info.textContent='탭하여 시작';tot.textContent=''}
+  else if(SP.phase==='fight'){var txt=SP.spRUN?'FIGHT':'정지';st.textContent=txt;st.className=SP.spRUN?'sp-fight':'sp-paused';el.innerHTML=_tw(spFmtTime(SP.rndRM));pr.style.width=(SP.rndRM/SP.rndTime*100)+'%';pr.className='spr-prog';info.textContent='Round '+SP.curRound}
+  else if(SP.phase==='rest'){var txt=SP.spRUN?'REST':'정지';st.textContent=txt;st.className=SP.spRUN?'sp-rest':'sp-paused';el.innerHTML=_tw(spFmtTime(SP.rndRM));pr.style.width=(SP.rndRM/SP.restTime*100)+'%';pr.className='spr-prog rest';info.textContent='휴식'}
+  else if(SP.phase==='done'){st.textContent='완료';st.className='sp-done';el.innerHTML=_tw('0:00');pr.style.width='0%';pr.className='spr-prog';info.textContent='전체 라운드 종료'}
+  var remaining=0;if(SP.phase==='fight'){remaining=SP.rndRM;for(var i=SP.curRound;i<SP.rounds;i++)remaining+=SP.restTime+SP.rndTime}
+  else if(SP.phase==='rest'){remaining=SP.rndRM;for(var i=SP.curRound+1;i<=SP.rounds;i++)remaining+=SP.rndTime+(i<SP.rounds?SP.restTime:0)}
+  if(SP.phase!=='idle'&&SP.phase!=='done')tot.textContent='남은 총 시간: '+spFmtTime(remaining)}
+function spStart(){if(SP.phase==='done')return;if(AC.state==='suspended')AC.resume();
+  if(SP.phase==='idle'){SP.phase='fight';SP.rndRM=SP.rndTime;SP.msRM2=0;SP.curRound=1;sndStart()}
+  SP.spRUN=true;SP.spLK=performance.now();
+  SP.spIV=setInterval(spTick,50);spUpdateDisplay()}
+function spStop(){SP.spRUN=false;clearInterval(SP.spIV);SP.spIV=null;if(SP.phase==='fight'||SP.phase==='rest')sndStop();spUpdateDisplay()}
+function spTog(){if(SP.phase==='done')return;SP.spRUN?spStop():spStart()}
+function spTick(){var now=performance.now(),elapsed=now-SP.spLK;SP.spLK=now;
+  SP.msRM2-=elapsed;while(SP.msRM2<0&&SP.rndRM>0){SP.rndRM--;SP.msRM2+=1000}
+  if(SP.warn>0&&SP.phase==='fight'&&SP.rndRM===SP.warn&&SP.msRM2>900)spSndWarn();
+  if(SP.rndRM<=0&&SP.msRM2<=0){SP.rndRM=0;SP.msRM2=0;clearInterval(SP.spIV);SP.spIV=null;
+    if(SP.phase==='fight'){sndEnd();if(SP.curRound>=SP.rounds){SP.phase='done';SP.spRUN=false;spUpdateDisplay();return}
+      SP.phase='rest';SP.rndRM=SP.restTime;SP.msRM2=0;SP.spRUN=true;spUpdateDisplay();setTimeout(function(){if(SP.phase==='rest'&&SP.spRUN){SP.spLK=performance.now();SP.spIV=setInterval(spTick,50)}},1500);return}
+    if(SP.phase==='rest'){spSndRest();SP.curRound++;SP.phase='fight';SP.rndRM=SP.rndTime;SP.msRM2=0;SP.spRUN=true;spUpdateDisplay();setTimeout(function(){if(SP.phase==='fight'&&SP.spRUN){sndStart();SP.spLK=performance.now();SP.spIV=setInterval(spTick,50)}},1000);return}}
+  spUpdateDisplay()}
+function spReset(){spStop();SP.phase='idle';SP.curRound=1;SP.rndRM=SP.rndTime;SP.msRM2=0;spUpdateDisplay()}
+function spLaunch(){spReset();goS('sparRun');spUpdateDisplay()}
+function spLoadPresets(){var raw=localStorage.getItem('bjjSpPresets');return raw?JSON.parse(raw):[]}
+function spSavePreset(){var name=SP.rndTime/60+'분×'+SP.rounds+'R/'+SP.restTime+'s';
+  var presets=spLoadPresets();var dup=false;presets.forEach(function(p){if(p.name===name)dup=true});
+  if(dup)return;presets.push({name:name,rndTime:SP.rndTime,restTime:SP.restTime,rounds:SP.rounds,warn:SP.warn});
+  localStorage.setItem('bjjSpPresets',JSON.stringify(presets));spRenderChips()}
+function spDeletePreset(idx){var presets=spLoadPresets();presets.splice(idx,1);localStorage.setItem('bjjSpPresets',JSON.stringify(presets));spRenderChips()}
+function spApplyPreset(idx){var presets=spLoadPresets();var p=presets[idx];if(!p)return;
+  SP.rndTime=p.rndTime;SP.restTime=p.restTime;SP.rounds=p.rounds;SP.warn=p.warn!==undefined?p.warn:10;
+  spSetRnd(SP.rndTime);spSetRest(SP.restTime);document.getElementById('spRndCnt').textContent=SP.rounds;spSetWarn(SP.warn);spUpdateSummary()}
+function spRenderChips(){var box=document.getElementById('spChips');var presets=spLoadPresets();var h='';
+  presets.forEach(function(p,i){h+='<span class="sp-chip" onclick="spApplyPreset('+i+')">'+p.name+'<button class="sp-chip-del" onclick="event.stopPropagation();spDeletePreset('+i+')">&times;</button></span>'});
+  h+='<button class="sp-chip-save" onclick="spSavePreset()">+ 현재 설정 저장</button>';box.innerHTML=h}
+spUpdateSummary();spRenderChips();
 </script>
 <script type="module">
 if(window.__TAURI__){

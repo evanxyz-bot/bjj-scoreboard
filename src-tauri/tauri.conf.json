@@ -13,6 +13,8 @@
         "title": "BJJ.Score",
         "width": 1280,
         "height": 720,
+        "minWidth": 768,
+        "minHeight": 432,
         "resizable": true,
         "fullscreen": false,
         "decorations": true

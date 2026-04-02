@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "node -e \"const fs=require('fs');fs.mkdirSync('dist',{recursive:true});fs.copyFileSync('index.html','dist/index.html')\"",
+    "build": "node -e \"const fs=require('fs');fs.mkdirSync('dist',{recursive:true});fs.copyFileSync('BJJ.Score.html','dist/index.html')\"",
     "tauri": "tauri"
   },
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@tauri-apps/cli": "^2.10.1"
+    "@tauri-apps/cli": "^2.10.1",
+    "puppeteer": "^24.40.0"
   },
   "dependencies": {
     "@tauri-apps/plugin-updater": "^2.10.0"
