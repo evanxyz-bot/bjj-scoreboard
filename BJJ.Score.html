@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>BJJ.Score</title>
 <meta name="theme-color" content="#0a0a0a">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&family=Orbitron:wght@400;700;900&family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&family=Orbitron:wght@400;700;900&family=Noto+Sans+KR:wght@400;600;700;900&family=Anton&family=Oswald:wght@700&family=Russo+One&family=Black+Ops+One&family=Permanent+Marker&family=Bungee&family=Righteous&family=Audiowide&family=Saira+Stencil+One&family=Chakra+Petch:wght@700&family=Tourney:wght@900&family=Racing+Sans+One&family=Coda:wght@800&family=Stalinist+One&family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0a0a0a;--panel:#111;--border:#222;--grid:#555;--text:#ddd;--dim:#555;--muted:#333;
   --red:#ff1a1a;--white:#fff;--black:#111;
@@ -17,21 +17,22 @@
 html,body{height:100%;overflow:hidden;width:100%}
 body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text)}
 .scr{display:none;flex-direction:column;height:100%;overflow:hidden}.scr.on{display:flex}
+#home.scr{overflow:visible}
 
 /* HOME */
-#home{align-items:stretch;justify-content:flex-start;gap:0;padding:0;height:100%;position:relative;
+#home{align-items:stretch;justify-content:flex-start;gap:0;padding:0;height:100%;position:relative;overflow:visible;
   background:radial-gradient(ellipse at 30% 50%,rgba(255,26,26,.06),transparent 50%),radial-gradient(ellipse at 70% 50%,rgba(68,138,255,.06),transparent 50%),var(--bg)}
 .home-beam{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:2;opacity:0;transition:opacity 1.2s linear;overflow:visible}
 .home-beam.on{opacity:1}
 .home-beam-cone{position:absolute;inset:0;pointer-events:none;transition:none;filter:blur(8px)}
 .home-floor-light{position:fixed;pointer-events:none;z-index:1;border-radius:50%;opacity:0;transition:opacity .3s;
   background:radial-gradient(ellipse,rgba(255,214,0,.12) 0%,rgba(255,214,0,.04) 30%,transparent 60%)}
-.home-lamp{position:relative;z-index:6;background:linear-gradient(180deg,#555,#333);border-radius:6px 6px 16px 16px;width:clamp(48px,7vw,64px)!important;height:clamp(44px,6.5vw,58px)!important;box-shadow:0 2px 8px rgba(0,0,0,.5)}
-.home-lamp::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:4px;height:6px;background:#666;border-radius:2px}
-.home-lamp::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:80%;height:8px;background:rgba(255,214,0,0);border-radius:0 0 6px 6px;box-shadow:0 0 0 transparent;transition:all 1s cubic-bezier(.22,.61,.36,1)}
-.home-lamp.glow::after{background:rgba(255,214,0,.9);box-shadow:0 6px 24px rgba(255,214,0,.9),0 12px 50px rgba(255,214,0,.5),0 20px 80px rgba(255,214,0,.2)}
-.pg-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(40px,8vh,72px);padding:clamp(16px,3vw,28px);margin-top:clamp(-20px,-3vh,-40px)}
-.home-logo h1{font-family:'Orbitron',monospace;font-size:clamp(72px,18vw,160px);font-weight:900;text-align:center;
+.home-lamp{position:relative;z-index:6;background:linear-gradient(180deg,#555,#333);border-radius:10px;width:clamp(48px,7.5vw,84px)!important;height:clamp(48px,7.5vw,84px)!important;box-shadow:0 2px 8px rgba(0,0,0,.5)}
+.home-lamp::before{display:none}
+.home-lamp::after{content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:80%;height:10px;background:rgba(255,214,0,0);border-radius:0 0 8px 8px;box-shadow:0 0 0 transparent;transition:all 1s cubic-bezier(.22,.61,.36,1)}
+.home-lamp.glow::after{background:rgba(255,214,0,.9);box-shadow:0 8px 28px rgba(255,214,0,.9),0 14px 56px rgba(255,214,0,.5),0 24px 90px rgba(255,214,0,.2)}
+.pg-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(14px,2.5vh,28px);padding:clamp(16px,3vw,28px);margin-top:clamp(14px,4vh,40px)}
+.home-logo h1{font-family:'Kdam Thmor Pro',sans-serif;font-size:clamp(72px,18vw,160px);font-weight:400;text-align:center;letter-spacing:0;transform:scaleX(1.2);
   -webkit-text-fill-color:#000;-webkit-text-stroke:2px #ff1a1a;
   text-shadow:0 0 10px rgba(255,26,26,.8),0 0 30px rgba(255,26,26,.5),0 0 60px rgba(255,26,26,.3),0 0 100px rgba(255,26,26,.15);
   position:relative}
@@ -39,16 +40,22 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
   background:linear-gradient(160deg,#1a1a1a 0%,#333 25%,#0a0a0a 40%,#2a2a2a 55%,#111 70%,#303030 85%,#1a1a1a 100%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;-webkit-text-stroke:0;text-shadow:none}
 .home-bottom{display:flex;align-items:center;justify-content:center;padding:clamp(14px,3vh,28px) clamp(16px,3vw,32px);position:absolute;bottom:0;left:0;right:0;z-index:1;background:transparent}
-.home-bottom-text{color:#fff;font-size:clamp(16px,3vw,22px);letter-spacing:4px;text-align:center;font-weight:500}
-.home-contact{position:absolute;right:clamp(16px,3vw,32px);text-align:right;z-index:5}
-.home-contact-label{font-family:'Noto Sans KR',sans-serif;font-size:clamp(13px,2.2vw,17px);color:#666;margin-bottom:6px}
-.home-contact-link{display:flex;align-items:center;gap:8px;text-decoration:none;color:#888;font-family:'Noto Sans KR',sans-serif;font-size:clamp(14px,2.4vw,18px);font-weight:600;transition:color .2s;justify-content:flex-end}
+.home-bottom-text{color:#5a4020;font-family:'Orbitron',monospace;font-size:clamp(14px,2.5vw,20px);letter-spacing:clamp(3px,.8vw,6px);text-align:center;font-weight:700;text-transform:uppercase}
+.home-contact{position:fixed;top:clamp(10px,2vw,20px);right:clamp(16px,3vw,32px);z-index:20;display:flex;flex-direction:row;align-items:center;gap:clamp(6px,1vw,12px)}
+.home-contact-label{font-family:'Noto Sans KR',sans-serif;font-size:clamp(11px,1.8vw,14px);color:#888}
+.home-contact-link{display:flex;align-items:center;gap:6px;text-decoration:none;color:#aaa;font-family:'Noto Sans KR',sans-serif;font-size:clamp(12px,2vw,16px);font-weight:600;transition:color .2s}
 .home-contact-link:hover{color:#e1306c}
-.home-contact-link svg{width:clamp(18px,2.8vw,22px);height:clamp(18px,2.8vw,22px);flex-shrink:0}
-.hcards{display:flex;gap:clamp(24px,4vw,60px);width:100%;max-width:1200px;justify-content:center}
+.home-contact-link svg{width:clamp(18px,2.8vw,22px);height:clamp(18px,2.8vw,22px);flex-shrink:0;vertical-align:middle;position:relative;top:2px}
+.hcards{display:flex;gap:0;width:100%;max-width:1500px;justify-content:center;margin-top:clamp(20px,4vh,40px);align-items:flex-end;padding:0 clamp(16px,3vw,40px)}
+.hcard-pod{flex:1;display:flex;flex-direction:column;align-items:center}
+.hcard-pod .hcard{margin:0 clamp(8px,1.5vw,16px);width:calc(100% - clamp(16px,3vw,32px))}
+.pod-base{text-align:center;font-family:'Orbitron',monospace;font-weight:900;letter-spacing:3px;display:flex;align-items:flex-start;justify-content:center;padding-top:clamp(8px,1.5vh,16px);width:100%}
+.pod-gold{height:clamp(150px,30vh,280px);background:linear-gradient(180deg,#c9a84c 0%,#f5d77a 30%,#c9a84c 60%,#a07c2a 100%);color:#4a3500;font-size:clamp(18px,3vw,28px)}
+.pod-silver{height:clamp(120px,26.3vh,270px);background:linear-gradient(180deg,#b0b0b0 0%,#e0e0e0 30%,#b0b0b0 60%,#888 100%);color:#333;font-size:clamp(16px,2.5vw,24px)}
+.pod-bronze{height:clamp(90px,24vh,260px);background:linear-gradient(180deg,#a0704a 0%,#cd8d5e 30%,#a0704a 60%,#7a5030 100%);color:#3a2010;font-size:clamp(14px,2vw,20px)}
 .hcard{flex:1;background:linear-gradient(145deg,#1a1a1a 0%,#252525 30%,#1e1e1e 50%,#2a2a2a 70%,#181818 100%);
   border:1px solid #3a3a3a;border-radius:clamp(12px,2vw,20px);
-  padding:clamp(30px,5vw,56px) clamp(22px,3.5vw,44px);cursor:pointer;transition:all .3s ease;text-align:center;position:relative;overflow:visible;
+  padding:clamp(16px,2.5vw,30px) clamp(14px,2vw,26px);cursor:pointer;transition:all .3s ease;text-align:center;position:relative;overflow:visible;
   box-shadow:0 4px 20px rgba(0,0,0,.5),0 8px 40px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.06),inset 0 -1px 0 rgba(0,0,0,.3);max-width:380px}
 .hcard-glow{position:absolute;inset:-3px;border-radius:inherit;pointer-events:none;z-index:1;opacity:0;transition:opacity .5s;
   --glow-angle:0deg;
@@ -71,9 +78,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .hcard-sparkle::after{width:12px;height:2.5px;border-radius:50%}
 @keyframes sparkle{0%{opacity:0;transform:scale(0) rotate(0deg)}10%{opacity:1;transform:scale(1) rotate(15deg)}30%{opacity:.9;transform:scale(.8) rotate(25deg)}70%{opacity:.5;transform:scale(.5) rotate(35deg)}100%{opacity:0;transform:scale(.2) rotate(45deg)}}
 .hcard.glow-border{transform:scale(1.04)}.hcard:active{transform:scale(.97)}
-.hi-svg{width:clamp(48px,9vw,72px);height:clamp(48px,9vw,72px);display:block;margin:0 auto clamp(10px,1.8vw,14px);stroke:#fff;stroke-width:1.5}
-.hcard h2{font-family:'Noto Sans KR',sans-serif;font-size:clamp(22px,4.5vw,38px);font-weight:700;margin-bottom:10px;color:var(--white)}
-.hcard p{font-size:clamp(14px,2.5vw,19px);color:#fff;line-height:1.7;font-weight:400}
+.hi-svg{width:clamp(56px,11vw,90px);height:clamp(56px,11vw,90px);display:block;margin:0 auto clamp(12px,2vw,18px);stroke:#fff;stroke-width:1.5}
+.hcard h2{font-family:'Noto Sans KR',sans-serif;font-size:clamp(28px,5.5vw,48px);font-weight:700;margin-bottom:12px;color:var(--white)}
+.hcard p{font-size:clamp(16px,3vw,24px);color:#fff;line-height:1.7;font-weight:400}
 .hcard-shine{position:absolute;inset:0;pointer-events:none;z-index:2;border-radius:inherit;overflow:hidden;opacity:0}
 .hcard-shine::before{content:'';position:absolute;top:-50%;left:-80%;width:80%;height:200%;
   background:linear-gradient(105deg,transparent 0%,transparent 36%,rgba(255,255,255,.04) 39%,rgba(255,214,0,.15) 42%,rgba(255,235,150,.3) 46%,rgba(255,255,255,.4) 50%,rgba(255,235,150,.3) 54%,rgba(255,214,0,.15) 58%,rgba(255,255,255,.04) 61%,transparent 64%,transparent 100%);
@@ -84,35 +91,36 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 @keyframes cardShineSweep{0%{left:-80%}100%{left:140%}}
 
 /* PG-TOP */
-.pg-top{display:flex;align-items:center;padding:clamp(4px,1vw,10px) clamp(6px,1.5vw,16px);background:var(--bg);border-bottom:none;position:relative;z-index:10;flex-shrink:0;min-height:clamp(52px,8vw,76px)}
+.pg-top{display:flex;align-items:center;padding:clamp(8px,1.5vw,16px) clamp(10px,2vw,24px);background:none;border-bottom:none;position:relative;z-index:10;flex-shrink:0;min-height:clamp(52px,8vw,76px)}
 .pg-top .pt-l{display:flex;gap:clamp(6px,1.2vw,10px)}
-.pg-top .pt-c{position:absolute;left:50%;transform:translateX(-50%)}
+.pg-top .pt-c{position:fixed;left:50%;top:clamp(8px,1.5vw,16px);transform:translateX(-50%);z-index:100}
+.pg-top .pt-c::before,.hdr-c::before{content:'';position:absolute;left:50%;transform:translateX(-50%);bottom:100%;width:5px;height:clamp(8px,1.5vw,16px);background:#666;border-radius:2px;z-index:-1}
 .pg-top .pt-r{margin-left:auto}
 
 /* TYPE SELECT */
 #tsel{align-items:stretch;justify-content:flex-start;gap:0;padding:0;min-height:100%;position:relative;
   background:radial-gradient(ellipse at 50% 30%,rgba(255,26,26,.06),transparent 60%),var(--bg)}
-.tsel-t h1{font-family:'Orbitron',monospace;font-size:clamp(40px,9vw,80px);font-weight:900;
+.tsel-t h1{font-family:'Kdam Thmor Pro',sans-serif;font-size:clamp(56px,12vw,110px);font-weight:400;
   -webkit-text-fill-color:#000;-webkit-text-stroke:2px #ff1a1a;
   text-shadow:0 0 10px rgba(255,26,26,.8),0 0 30px rgba(255,26,26,.5),0 0 60px rgba(255,26,26,.3),0 0 100px rgba(255,26,26,.15);
-  text-align:center;letter-spacing:6px;position:relative}
+  text-align:center;letter-spacing:clamp(2px,.5vw,6px);transform:scaleX(1.2);position:relative}
 .tsel-t h1::before{content:attr(data-text);position:absolute;inset:0;
   background:linear-gradient(160deg,#1a1a1a 0%,#333 25%,#0a0a0a 40%,#2a2a2a 55%,#111 70%,#303030 85%,#1a1a1a 100%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;-webkit-text-stroke:0;text-shadow:none}
 .tsel-t p{display:none}
-.tcards{display:flex;gap:clamp(60px,10vw,120px);width:100%;max-width:1100px;justify-content:center}
+.tcards{display:flex;gap:clamp(40px,6vw,80px);width:100%;max-width:1500px;justify-content:center;margin-top:clamp(30px,6vh,60px)}
 .tc{flex:1;background:linear-gradient(145deg,#1a1a1a 0%,#252525 30%,#1e1e1e 50%,#2a2a2a 70%,#181818 100%);
-  border:1px solid #3a3a3a;border-radius:clamp(14px,2.5vw,20px);padding:clamp(32px,5vw,56px);cursor:pointer;transition:all .3s ease;text-align:center;position:relative;overflow:visible;
-  box-shadow:0 4px 20px rgba(0,0,0,.5),0 8px 40px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.06),inset 0 -1px 0 rgba(0,0,0,.3);max-width:520px}
+  border:1px solid #3a3a3a;border-radius:clamp(14px,2.5vw,20px);padding:clamp(16px,2.5vw,28px);cursor:pointer;transition:all .3s ease;text-align:center;position:relative;overflow:visible;
+  box-shadow:0 4px 20px rgba(0,0,0,.5),0 8px 40px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.06),inset 0 -1px 0 rgba(0,0,0,.3);max-width:560px}
 .tc.glow-border{transform:scale(1.04)}
 .tc:active{transform:scale(.97)}
 .tc::before{display:none}
-.tc h2{font-family:'Noto Sans KR',sans-serif;font-size:clamp(26px,4.5vw,42px);font-weight:500;margin-bottom:14px;color:var(--white);letter-spacing:4px}
-.tc p{font-size:clamp(15px,2.5vw,22px);color:#ccc;line-height:1.7;margin-bottom:clamp(16px,2.5vw,24px)}
-.pv-table{width:100%;border-collapse:collapse;font-family:'Rajdhani',sans-serif;font-size:clamp(14px,2.2vw,20px);color:var(--score-color)}
-.pv-table th{background:var(--bg);color:#fff;padding:7px 6px;font-size:clamp(10px,1.6vw,15px);letter-spacing:1px;border:1px solid var(--border);font-weight:700}
-.pv-table td{padding:clamp(8px,1.5vw,16px) 6px;border:1px solid var(--border);text-align:center;font-weight:700}
-.pv-table .pv-nm{text-align:left;padding-left:10px;font-family:'Noto Sans KR',sans-serif;font-size:clamp(12px,2vw,18px)}
+.tc h2{font-family:'Noto Sans KR',sans-serif;font-size:clamp(26px,4.5vw,42px);font-weight:500;margin-bottom:8px;color:var(--white);letter-spacing:4px}
+.tc p{font-size:clamp(15px,2.5vw,22px);color:#ccc;line-height:1.7;margin-bottom:clamp(10px,1.5vw,16px)}
+.pv-table{width:100%;border-collapse:collapse;font-family:'Bebas Neue','Rajdhani',sans-serif;font-size:clamp(36px,6vw,56px);color:var(--score-color)}
+.pv-table th{background:var(--bg);color:#fff;padding:10px 8px;font-size:clamp(14px,2.2vw,20px);letter-spacing:2px;border:1px solid var(--border);font-weight:700}
+.pv-table td{padding:clamp(6px,1vw,12px) 8px;border:1px solid var(--border);text-align:center;font-weight:700;vertical-align:middle}
+.pv-table .pv-nm{text-align:center;font-family:'Noto Sans KR',sans-serif;font-size:clamp(20px,3.5vw,32px)}
 .pv-table .pv-r1 td{background:var(--p1-bg)}.pv-table .pv-r2 td{background:var(--p2-bg)}
 .pv-table .pv-pen{background:var(--pen-bg)!important}.pv-table .pv-adv{background:var(--adv-bg)!important}
 .pv-table .pv-tot{background:var(--sc-bg)!important;color:var(--score-color)}
@@ -122,11 +130,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 
 /* BOARD HEADER */
 .hdr{display:flex;align-items:center;justify-content:space-between;padding:clamp(8px,1.5vw,16px) clamp(10px,2vw,24px);background:var(--panel);border-bottom:1px solid var(--border);position:relative;gap:6px;flex-wrap:nowrap;overflow:hidden}
-.hdr-l{display:flex;align-items:center;gap:clamp(5px,1.2vw,14px)}
-.hdr-c{position:absolute;left:50%;transform:translateX(-50%)}
+.hdr-l{display:flex;align-items:center;gap:clamp(6px,1.2vw,10px)}
+.hdr-c{position:fixed;left:50%;top:clamp(8px,1.5vw,16px);transform:translateX(-50%);z-index:100}
 .h-btn{background:#444;border:none;color:#fff;width:clamp(48px,7.5vw,84px);height:clamp(48px,7.5vw,84px);border-radius:10px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
 .h-btn:hover{background:#555}.h-btn:active{transform:scale(.93)}
-.h-btn svg{width:clamp(20px,3.5vw,42px);height:clamp(20px,3.5vw,42px);stroke:#fff;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.h-btn svg{width:clamp(32px,5.5vw,60px);height:clamp(32px,5.5vw,60px);stroke:#fff;stroke-width:2;fill:none;stroke-linecap:butt;stroke-linejoin:miter}
+.hdr-c .h-btn svg,.pt-c .h-btn svg{width:clamp(32px,5.5vw,60px);height:clamp(32px,5.5vw,60px);stroke-width:1.4;stroke-linecap:square;stroke-linejoin:miter}
 .hdr-r{display:flex;align-items:center;gap:clamp(5px,1.2vw,14px)}
 .h-btn-rst{background:#c62828;border:none;color:#fff;padding:clamp(10px,1.5vw,20px) clamp(18px,3vw,40px) clamp(12px,1.8vw,22px);border-radius:8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(16px,2.8vw,28px);flex-shrink:0;font-weight:700;letter-spacing:1px;transition:background .15s;display:inline-flex;align-items:center;justify-content:center;line-height:1}
 .h-btn-rst:hover{background:#e53935}.h-btn-rst:active{transform:scale(.93)}
@@ -145,42 +154,55 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .tmv.stopped{color:var(--red);text-shadow:0 0 20px rgba(255,26,26,.4)}
 .tmv span{font-variant-numeric:tabular-nums}
 .tmv.crit{color:#ff4444;text-shadow:0 0 30px rgba(255,68,68,.6)}
-.tm-time-btn{position:absolute;bottom:clamp(10px,2.5vh,20px);right:clamp(12px,3vw,24px);background:#222;border:none;color:#fff;
-  cursor:pointer;z-index:5;pointer-events:auto;line-height:1;padding:clamp(8px,1.5vw,14px);border-radius:12px;transition:background .15s}
-.tm-time-btn svg{width:clamp(28px,5vw,44px);height:clamp(28px,5vw,44px);display:block;stroke:#fff}
-.tm-time-btn:hover{background:#444}.tm-time-btn:active{transform:scale(.9)}
+.tm-time-btn{position:absolute;top:50%;right:clamp(60px,12vw,160px);transform:translateY(-50%);background:#222;border:none;color:#fff;
+  cursor:pointer;z-index:5;pointer-events:auto;line-height:1;padding:clamp(24px,4vw,40px);border-radius:22px;transition:background .15s}
+.tm-time-btn svg{width:clamp(52px,9vw,80px);height:clamp(52px,9vw,80px);display:block;stroke:#fff}
+.tm-time-btn:hover{background:#444}.tm-time-btn:active{transform:translateY(-50%) scale(.95)}
 .tm-edit{display:none;flex-direction:column;align-items:center;gap:clamp(10px,2vh,18px);font-family:'Orbitron',monospace;pointer-events:auto}
 .tm-edit.on{display:flex}
 .te-presets{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(6px,1.5vw,12px)}
 .te-presets button{background:#111;border:2px solid #444;color:#ffd600;font-family:'Rajdhani',sans-serif;font-size:clamp(22px,4.5vw,36px);font-weight:700;padding:clamp(8px,1.5vw,14px) clamp(14px,3vw,26px);border-radius:8px;cursor:pointer}
 .te-presets button:hover{background:#333;border-color:#ffd600}
 .te-presets button:active{transform:scale(.93)}
+.tm-edit .te-presets button{background:#ffffff;border:2px solid #111;color:#111;font-size:clamp(28px,6vw,48px);padding:0 clamp(18px,4vw,34px);height:clamp(58px,9vw,90px);border-radius:10px}
+.tm-edit .tp-num{font-family:'Bebas Neue','Rajdhani',sans-serif;font-size:1.4em}.tm-edit .tp-unit{font-size:0.7em;margin-left:2px}
+.tm-edit .te-presets button:hover{background:#eee;border-color:#000}
 .te-custom{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(6px,1.2vw,10px)}
 .te-custom input[type="number"]{background:#111;color:#ffd600;border:2px solid #444;border-radius:8px;font-family:'Rajdhani',sans-serif;font-size:clamp(22px,4.5vw,36px);font-weight:700;padding:clamp(6px,1vw,12px) clamp(6px,1vw,12px);width:clamp(50px,10vw,80px);text-align:center;-moz-appearance:textfield;outline:none}
+.tm-edit .te-custom{gap:clamp(8px,1.5vw,14px)}
+.tm-edit .te-custom input[type="number"]{font-family:'Bebas Neue','Rajdhani',sans-serif;font-size:clamp(48px,10vw,80px);padding:0;padding-top:.1em;border-radius:10px;border:2px solid #444;width:clamp(82px,14vw,130px);height:clamp(58px,9vw,90px);line-height:1;letter-spacing:3px;text-indent:3px}
+.tm-edit .te-custom span{font-size:clamp(28px,6vw,48px)}
 .te-custom input[type="number"]::-webkit-inner-spin-button,.te-custom input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 .te-custom input[type="number"]:focus{border-color:#ffd600;background:#222}
 .te-custom span{color:#111;font-family:'Rajdhani',sans-serif;font-size:clamp(22px,4.5vw,36px);font-weight:700}
 .te-custom button{background:#c62828;color:#fff;border:2px solid #e53935;border-radius:8px;font-family:'Rajdhani',sans-serif;font-size:clamp(22px,4.5vw,36px);font-weight:700;padding:clamp(6px,1vw,12px) clamp(14px,3vw,26px);cursor:pointer}
 .te-custom button:hover{background:#e53935;border-color:#ff5252}.te-custom button:active{transform:scale(.93)}
+.tr-custom{gap:clamp(8px,1.5vw,14px)!important}
+.tr-custom input[type="number"]{font-family:'Bebas Neue','Rajdhani',sans-serif;font-size:clamp(56px,12vw,88px)!important;width:clamp(100px,17vw,160px)!important;height:clamp(72px,11vw,110px);padding:0!important;padding-top:.1em!important;border-radius:12px;line-height:1;letter-spacing:3px;text-indent:3px}
+.tr-colon{color:#ffd600!important;font-family:'Bebas Neue',sans-serif;font-size:clamp(50px,10vw,80px)!important;font-weight:700}
+.tr-apply{background:#2e7d32!important;border:2px solid #43a047!important;border-radius:12px!important;margin-left:clamp(30px,5vw,50px);width:clamp(72px,11vw,110px);height:clamp(72px,11vw,110px);font-size:clamp(34px,6vw,54px)!important;padding:0!important;display:flex;align-items:center;justify-content:center}
+.tr-apply:hover{background:#43a047!important;border-color:#66bb6a!important}
+.tm-edit .te-custom button{background:#ffffff;color:#111;border:2px solid #111;border-radius:10px;font-size:clamp(28px,6vw,48px);padding:0 clamp(18px,4vw,34px);height:clamp(58px,9vw,90px);line-height:1}
+.tm-edit .te-custom button:hover{background:#eee;border-color:#000}
 .tr-time-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
 .tr-time-overlay.on{display:flex}
-.tr-time-box{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:clamp(24px,5vw,36px);width:100%;max-width:520px;position:relative}
-.tr-time-box h3{font-family:'Orbitron',monospace;font-size:clamp(18px,3.5vw,26px);text-align:center;margin-bottom:clamp(20px,3vh,30px);letter-spacing:3px;color:#fff}
-.tr-time-section{margin-bottom:clamp(16px,2.5vh,24px);padding-bottom:clamp(16px,2.5vh,24px);border-bottom:1px solid var(--border)}
+.tr-time-box{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:clamp(36px,7vw,56px);width:100%;max-width:720px;position:relative}
+.tr-time-box h3{font-family:'Noto Sans KR',sans-serif;font-size:clamp(38px,7vw,54px);font-weight:700;text-align:center;margin-bottom:clamp(28px,4vh,40px);letter-spacing:3px;color:#fff}
+.tr-time-section{margin-bottom:clamp(22px,3.5vh,34px);padding-bottom:clamp(22px,3.5vh,34px);border-bottom:1px solid rgba(255,255,255,.4)}
 .tr-time-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.tr-time-label{font-family:'Noto Sans KR',sans-serif;font-size:clamp(14px,2.5vw,18px);color:#888;margin-bottom:clamp(10px,1.5vh,16px);letter-spacing:2px;font-weight:600}
+.tr-time-label{font-family:'Noto Sans KR',sans-serif;font-size:clamp(22px,4vw,30px);color:#888;margin-top:-18px;margin-bottom:clamp(14px,2vh,22px);letter-spacing:2px;font-weight:600;text-align:center}
 .te-belts{margin-top:clamp(8px,1.5vw,14px);border-top:1px solid #555;padding-top:clamp(8px,1.5vw,14px)}
 .te-belt-label{font-family:'Noto Sans KR',sans-serif;font-size:clamp(12px,2vw,16px);color:#888;text-align:center;margin-bottom:clamp(6px,1vw,10px);letter-spacing:2px}
-.te-belt-row{display:flex;gap:clamp(4px,1vw,8px);justify-content:center}
-.belt-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:clamp(6px,1vw,10px) clamp(10px,2vw,16px);border-radius:8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(10px,1.6vw,14px);font-weight:700;border:2px solid;transition:all .15s}
+.te-belt-row{display:flex;gap:clamp(6px,1vw,10px);justify-content:center}
+.belt-btn{display:flex;flex-direction:column;align-items:center;gap:4px;padding:clamp(10px,1.5vw,16px) clamp(12px,2vw,20px);border-radius:10px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(18px,3vw,26px);font-weight:700;border:2px solid;transition:all .15s;white-space:nowrap;flex:1;min-width:0}
 .belt-btn:hover{transform:scale(1.08)}.belt-btn:active{transform:scale(.95)}
-.belt-icon{display:block;width:clamp(28px,5vw,40px);height:clamp(8px,1.4vw,12px);border-radius:3px;margin-bottom:2px}
+.belt-icon{display:block;width:clamp(36px,6vw,52px);height:clamp(10px,1.8vw,16px);border-radius:4px;margin-bottom:3px}
 .belt-white{background:#222;border-color:#ddd;color:#ddd}.belt-white .belt-icon{background:#f5f5f5}
 .belt-blue{background:#1a3a5c;border-color:#2979ff;color:#64b5f6}.belt-blue .belt-icon{background:#2979ff}
 .belt-purple{background:#2d1b4e;border-color:#9c27b0;color:#ce93d8}.belt-purple .belt-icon{background:#9c27b0}
 .belt-brown{background:#3e2723;border-color:#8d6e63;color:#bcaaa4}.belt-brown .belt-icon{background:#8d6e63}
 .belt-black{background:#111;border-color:#555;color:#aaa}.belt-black .belt-icon{background:#333;border:1px solid #666}
-.belt-time{font-size:clamp(9px,1.3vw,12px);opacity:.7;font-weight:400}
+.belt-time{font-size:clamp(16px,2.5vw,22px);opacity:.7;font-weight:400}
 .tm-edit input[type="number"]{background:#111;border:2px solid #444;color:#ffd600;padding:clamp(8px,1.5vw,12px) clamp(6px,1vw,12px);border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:clamp(22px,4.5vw,36px);font-weight:600;outline:none;width:clamp(50px,10vw,80px);text-align:center;-moz-appearance:textfield}
 .tm-edit input[type="number"]::-webkit-inner-spin-button,.tm-edit input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 .tm-edit input[type="number"]:focus{border-color:#ffd600;background:#222}
@@ -257,10 +279,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .log-tl-row .log-tl-cell.adv-active{background:var(--adv-bg);color:var(--score-color)}
 .log-tl-scroll{display:flex;flex-direction:column;flex:1;overflow-x:auto;overflow-y:hidden}
 .log-tl-row-time{display:flex;flex:0 0 auto;height:28px;border-bottom:1px solid #555;background:#222}
-.log-tl-row{display:flex;flex:1;border-bottom:1px solid #555}
+.log-tl-row{display:flex;flex:1;min-height:clamp(50px,8vh,80px);border-bottom:1px solid #555}
 .log-tl-row:last-child{border-bottom:none}
-.log-tl-cell-time{min-width:clamp(50px,8vw,70px);display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:clamp(11px,1.6vw,14px);color:#fff;font-weight:600;border-right:1px solid #333;flex-shrink:0}
-.log-tl-cell{min-width:clamp(50px,8vw,70px);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,2.5vw,22px);letter-spacing:1px;border-right:1px solid #333;flex-shrink:0;color:#555}
+.log-tl-cell-time{min-width:clamp(36px,6vw,50px);display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:clamp(16px,2.5vw,22px);color:#fff;font-weight:600;border-right:1px solid #333;flex-shrink:0}
+.log-tl-cell{min-width:clamp(36px,6vw,50px);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,4vw,36px);letter-spacing:1px;border-right:1px solid #333;flex-shrink:0;color:#555}
 .log-tl-cell.active{color:var(--green)}.log-tl-cell.minus-active{color:var(--red)}
 .log-tl-cell.pen-active{color:#ff8a80}.log-tl-cell.adv-active{color:#ffd54f}
 .log-tl-row.log-row-linked{position:relative;z-index:2;overflow:visible}
@@ -282,8 +304,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .trt-cl.trt-pen{border-right:2px solid #555}
 .trt-cl.trt-adv{border-right:none}
 .trt-cl:last-child{border-right:none}
-.trt-tip{font-size:clamp(12px,2vw,18px);color:#fff;font-weight:500;white-space:nowrap}
-.trt-lb{display:flex;align-items:center;justify-content:center;font-family:'Noto Sans KR',sans-serif;font-size:clamp(14px,2.5vw,22px);font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;letter-spacing:0;border-right:1px dashed #555}
+.trt-tip{font-size:clamp(14px,2.5vw,22px);color:#fff;font-weight:500;white-space:nowrap}
+.trt-lb{display:flex;align-items:center;justify-content:center;font-family:'Noto Sans KR',sans-serif;font-size:clamp(18px,3.2vw,28px);font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;letter-spacing:0;border-right:1px dashed #555}
 .trt-lb:last-child{border-right:none}
 .trt-lb-nm{border-right:2px solid #555;border-left:2px solid #555}
 .trt-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;border-radius:0;border:none;cursor:pointer;transition:filter .15s;gap:0;background:#fff}
@@ -295,7 +317,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .trt-lbl.lbl-nm{color:#888;font-size:clamp(9px,1.4vw,14px);letter-spacing:2px}
 .trt-nm{border-right:2px solid #555;justify-content:center;text-align:center;color:#111;padding:0 clamp(4px,.6vw,8px);font-family:'Noto Sans KR',sans-serif;font-weight:700;letter-spacing:clamp(1px,.3vw,3px);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;line-height:1;font-size:clamp(44px,8vw,90px)!important;max-height:100%;cursor:default}
 .trt-nm[contenteditable]{cursor:text;outline:none;user-select:text}.trt-nm[contenteditable]:focus{box-shadow:inset 0 0 0 2px var(--red)}
-.trt-sc{font-family:'Bebas Neue','Rajdhani',sans-serif;font-weight:400;color:var(--score-color);line-height:1;padding:0;cursor:pointer;transition:filter .1s;font-size:clamp(70px,15vw,180px)}
+.trt-sc{font-family:'Bebas Neue','Rajdhani',sans-serif;font-weight:400;color:var(--score-color);line-height:.9;padding:0;padding-top:.05em;cursor:pointer;transition:filter .1s;font-size:clamp(90px,20vw,240px)}
 .trt-sc:active{filter:brightness(.85)}.trt-sc.fl{animation:cfl .3s ease-out}
 .trt-tot{background:var(--sc-bg);color:var(--score-color);border-left:2px solid #555}
 .trt-pen{background:var(--pen-bg);color:var(--score-color);cursor:pointer}.trt-pen:hover{filter:brightness(.88)}
@@ -329,7 +351,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .cl-adv{background:var(--adv-bg);cursor:pointer}.cl-adv:hover{filter:brightness(.88)}
 
 /* TYPE A */
-.gA{grid-template-columns:3fr 1.5fr .8fr .8fr}.gA .cl{font-size:clamp(110px,24vw,280px);cursor:pointer}
+.gA{grid-template-columns:3fr 1.5fr .8fr .8fr}.gA .cl{font-size:clamp(110px,24vw,280px);cursor:pointer;letter-spacing:clamp(4px,1vw,12px)}
 /* TYPE C */
 .gC{grid-template-columns:2.8fr .8fr .8fr .8fr 1fr .7fr .7fr}.gC .cl{font-size:clamp(75px,16vw,200px)}.gC .cl-sc{background:#fff!important;font-size:clamp(55px,12vw,140px)}.gC .cl-tot{font-size:clamp(75px,16vw,200px)}
 
@@ -369,7 +391,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 #sparSet .pg-top{background:none;border:none;box-shadow:none}
 .spar-title h1{font-family:'Orbitron',monospace;font-size:clamp(32px,7vw,64px);font-weight:900;
   -webkit-text-fill-color:#000;-webkit-text-stroke:2px var(--green);
-  text-shadow:0 0 10px rgba(0,230,118,.8),0 0 30px rgba(0,230,118,.5),0 0 60px rgba(0,230,118,.3),0 0 100px rgba(0,230,118,.15);
+  text-shadow:0 0 8px rgba(0,230,118,.7),0 0 20px rgba(0,230,118,.4),0 0 40px rgba(0,230,118,.15);
   text-align:center;letter-spacing:6px;position:relative}
 .spar-title h1::before{content:attr(data-text);position:absolute;inset:0;
   background:linear-gradient(160deg,#1a1a1a 0%,#333 25%,#0a0a0a 40%,#2a2a2a 55%,#111 70%,#303030 85%,#1a1a1a 100%);
@@ -387,16 +409,16 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .sp-cnt-btn:hover{border-color:var(--green);background:#333}
 .sp-cnt-btn:active{transform:scale(.9)}
 .sp-cnt-val{font-family:'Teko',sans-serif;font-size:clamp(36px,7vw,56px);color:#fff;min-width:clamp(40px,7vw,60px);text-align:center;font-weight:500}
-.sp-presets{width:100%;max-width:700px}
-.sp-presets-label{font-family:'Noto Sans KR',sans-serif;font-size:clamp(13px,2.2vw,17px);color:#888;margin-bottom:clamp(6px,1vw,10px);font-weight:600;letter-spacing:1px}
-.sp-chips{display:flex;flex-wrap:wrap;gap:clamp(4px,1vw,8px)}
+.sp-presets{width:clamp(120px,12vw,180px);display:flex;flex-direction:column;gap:clamp(6px,1vw,10px);position:fixed;right:clamp(16px,3vw,32px);top:50%;transform:translateY(-50%);z-index:10}
+.sp-presets-label{font-family:'Noto Sans KR',sans-serif;font-size:clamp(13px,2.2vw,17px);color:#888;margin-bottom:clamp(2px,.5vw,4px);font-weight:600;letter-spacing:1px}
+.sp-chips{display:flex;flex-direction:column;gap:clamp(4px,1vw,8px)}
 .sp-chip{display:flex;align-items:center;gap:4px;padding:clamp(4px,.8vw,8px) clamp(8px,1.5vw,14px);border:1px solid #555;border-radius:20px;background:#222;color:#ccc;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(12px,2vw,15px);font-weight:600;transition:all .15s}
 .sp-chip:hover{border-color:var(--green);color:var(--green)}
 .sp-chip-del{background:none;border:none;color:#888;cursor:pointer;font-size:clamp(14px,2.2vw,18px);line-height:1;padding:0 2px;transition:color .15s}
 .sp-chip-del:hover{color:#ff4444}
-.sp-chip-save{padding:clamp(4px,.8vw,8px) clamp(8px,1.5vw,14px);border:1px dashed #555;border-radius:20px;background:none;color:#666;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(12px,2vw,15px);font-weight:600;transition:all .15s}
+.sp-chip-save{padding:clamp(4px,.8vw,8px) clamp(8px,1.5vw,14px);border:1px dashed #555;border-radius:20px;background:none;color:#666;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(12px,2vw,15px);font-weight:600;transition:all .15s;width:100%;text-align:center}
 .sp-chip-save:hover{border-color:var(--green);color:var(--green)}
-.sp-summary{font-family:'Noto Sans KR',sans-serif;font-size:clamp(14px,2.5vw,20px);color:#aaa;text-align:center;letter-spacing:1px}
+.sp-summary{font-family:'Noto Sans KR',sans-serif;font-size:clamp(14px,2.5vw,20px);color:#aaa;text-align:center;letter-spacing:1px;width:100%;max-width:700px}
 .sp-summary b{color:#fff}
 .sp-start{width:100%;max-width:700px;padding:clamp(14px,2.5vw,22px);border:none;border-radius:clamp(10px,1.5vw,16px);background:var(--green);color:#000;font-family:'Orbitron',monospace;font-size:clamp(20px,4vw,32px);font-weight:900;cursor:pointer;letter-spacing:4px;transition:all .15s;text-transform:uppercase}
 .sp-start:hover{filter:brightness(1.1);transform:scale(1.02)}
@@ -425,22 +447,22 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 </head>
 <body>
 <!-- HOME -->
-<div id="home" class="scr on"><div class="pg-top"><div class="pt-l"></div><div class="pt-c"><button class="h-btn home-lamp" id="homeLamp" onclick="openSettings()"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button></div></div>
+<div id="home" class="scr on"><div class="pg-top"><div class="pt-l"></div><div class="pt-c"><button class="h-btn home-lamp" id="homeLamp" onclick="openSettings()"><svg viewBox="0 0 24 24"><path d="M10.3 1.1L13.7 1.1L13.9 4.2L16.2 5.2L18.5 3.1L20.9 5.5L18.8 7.8L19.8 10.1L22.9 10.3L22.9 13.7L19.8 13.9L18.8 16.2L20.9 18.5L18.5 20.9L16.2 18.8L13.9 19.8L13.7 22.9L10.3 22.9L10.1 19.8L7.8 18.8L5.5 20.9L3.1 18.5L5.2 16.2L4.2 13.9L1.1 13.7L1.1 10.3L4.2 10.1L5.2 7.8L3.1 5.5L5.5 3.1L7.8 5.2L10.1 4.2Z" stroke-linejoin="miter"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
 <div class="home-beam" id="homeBeam"><div class="home-beam-cone" id="homeBeamCone"></div></div>
 <div class="home-floor-light" id="homeFloor"></div>
-<div class="pg-body"><div class="home-logo"><h1 data-text="BJJ.Score">BJJ.Score</h1></div>
-<div class="hcards"><div class="hcard hct" onclick="goS('tsel')"><svg class="hi-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4a2 2 0 01-2-2V5a2 2 0 012-2h2M18 9h2a2 2 0 002-2V5a2 2 0 00-2-2h-2M6 3h12v6a6 6 0 01-12 0V3zM9 21h6M12 15v6"/></svg><h2>시합용 점수판</h2><p>기본형 · 상세형</p></div>
-<div class="hcard hcr" onclick="launchTR()"><svg class="hi-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L8 6v4l4 2 4-2V6L12 2z"/><path d="M8 10v8l4 4 4-4v-8"/><path d="M10 8h4"/></svg><h2>학습용 점수판</h2><p>연습 경기 및 점수 체계 학습용</p></div>
-<div class="hcard hcs" onclick="goS('sparSet')"><svg class="hi-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/><path d="M17 17l3 3"/><polygon points="20 20 23 18 21 23" fill="currentColor" stroke="none"/></svg><h2>스파링 타이머</h2><p>라운드 · 휴식 · 인터벌</p></div>
-</div></div><div class="home-bottom"><p class="home-bottom-text">Brazilian Jiu-Jitsu Scoreboard</p>
-<div class="home-contact"><div class="home-contact-label">개발자에게 문의하기</div><a class="home-contact-link" href="https://instagram.com/evan_xyz" target="_blank"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>@evan_xyz</a></div></div></div></div>
+<div class="pg-body"><div class="home-logo"><h1 data-text="BJJ . Score">BJJ . Score</h1></div>
+<div class="hcards"><div class="hcard-pod pod-2"><div class="hcard hcr" onclick="launchTR()"><svg class="hi-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg><h2>학습용 점수판</h2><p>연습 경기 및 점수 체계 학습용</p></div><div class="pod-base pod-silver"></div></div>
+<div class="hcard-pod pod-1"><div class="hcard hct" onclick="goS('tsel')"><svg class="hi-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M6 3h12v7a6 6 0 01-12 0V3z"/><path d="M6 5H3v2a3 3 0 003 3"/><path d="M18 5h3v2a3 3 0 01-3 3"/><path d="M9 21h6"/><path d="M12 16v5"/></svg><h2>시합용 점수판</h2><p>기본형 · 상세형</p></div><div class="pod-base pod-gold"></div></div>
+<div class="hcard-pod pod-3"><div class="hcard hcs" onclick="goS('sparSet')"><svg class="hi-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="9"/><polyline points="12 9 12 13 15 15"/><path d="M12 4V2"/><path d="M10 2h4"/></svg><h2>스파링 타이머</h2><p>라운드 · 휴식 · 인터벌</p></div><div class="pod-base pod-bronze"></div></div>
+</div></div><div class="home-bottom"><p class="home-bottom-text">Brazilian Jiu-Jitsu Scoreboard</p></div>
+<div class="home-contact"><div class="home-contact-label">개발자에게 문의하기</div><a class="home-contact-link" href="https://instagram.com/evan_xyz" target="_blank"><svg viewBox="0 0 24 24"><defs><radialGradient id="ig" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" fill="url(#ig)" stroke="none"/><rect x="5" y="5" width="14" height="14" rx="3.5" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="3.5" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="17" cy="7" r="1" fill="#fff"/></svg>@evan_xyz</a></div></div></div>
 
 <!-- TYPE SELECT -->
 <div id="tsel" class="scr" style="position:relative;background:radial-gradient(ellipse at 30% 50%,rgba(255,26,26,.06),transparent 50%),radial-gradient(ellipse at 70% 50%,rgba(68,138,255,.06),transparent 50%),var(--bg)">
 <div class="home-beam" id="tselBeam"><div class="home-beam-cone" id="tselBeamCone"></div></div>
 <div class="home-floor-light" id="tselFloor"></div>
-<div class="pg-top" style="position:relative;z-index:5"><div class="pt-l"><button class="h-btn" onclick="goS('home')"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 12v7a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-7"/></svg></button><button class="h-btn" onclick="goS('home')"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button></div><div class="pt-c"><button class="h-btn home-lamp" id="tselLamp" onclick="openSettings()"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button></div></div>
-<div class="pg-body" style="position:relative;z-index:3"><div class="tsel-t"><h1 data-text="Score Board Type">Score Board Type</h1></div>
+<div class="pg-top" style="position:relative;z-index:5;background:none;border:none"><div class="pt-l"><button class="h-btn" onclick="goS('home')"><svg viewBox="0 0 24 24" stroke-linecap="square" stroke-linejoin="miter"><path d="M1 13l11-11 11 11"/><path d="M5 12v9h5v-5h4v5h5v-9"/></svg></button><button class="h-btn" onclick="goS('home')"><svg viewBox="2 0 24 24" stroke-linecap="square" stroke-linejoin="miter"><path d="M19 21l-11-9 11-9"/></svg></button></div><div class="pt-c"><button class="h-btn home-lamp" id="tselLamp" onclick="openSettings()"><svg viewBox="0 0 24 24"><path d="M10.3 1.1L13.7 1.1L13.9 4.2L16.2 5.2L18.5 3.1L20.9 5.5L18.8 7.8L19.8 10.1L22.9 10.3L22.9 13.7L19.8 13.9L18.8 16.2L20.9 18.5L18.5 20.9L16.2 18.8L13.9 19.8L13.7 22.9L10.3 22.9L10.1 19.8L7.8 18.8L5.5 20.9L3.1 18.5L5.2 16.2L4.2 13.9L1.1 13.7L1.1 10.3L4.2 10.1L5.2 7.8L3.1 5.5L5.5 3.1L7.8 5.2L10.1 4.2Z" stroke-linejoin="miter"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
+<div class="pg-body" style="position:relative;z-index:1;margin-top:clamp(-30px,-4vh,-50px)"><div class="tsel-t"><h1 data-text="Board Type">Board Type</h1></div>
 <div class="tcards">
 <div class="tc" onclick="launchT('A')"><h2>기본형</h2><p>좌클릭 +1 · 우클릭 -1</p>
 <table class="pv-table"><tr><th>PLAYER</th><th>TOTAL</th><th>A</th><th>P</th></tr>
@@ -454,28 +476,28 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 
 
 <!-- BOARD A -->
-<div id="bA" class="scr"><div class="hdr"><div class="hdr-l"><button class="h-btn" onclick="backHome()"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 12v7a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-7"/></svg></button><button class="h-btn" onclick="backSel()"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button></div><div class="hdr-c"><button class="h-btn" onclick="openSettings()"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button></div><div class="hdr-r"><button class="h-btn-log" onclick="openLog()">Log</button><button class="h-btn-undo" onclick="undoRst()" disabled>Undo</button><button class="h-btn-rst" onclick="rst()">Reset</button><button class="h-btn-x" onclick="backSel()"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div></div>
+<div id="bA" class="scr"><div class="hdr"><div class="hdr-l"><button class="h-btn" onclick="backHome()"><svg viewBox="0 0 24 24" stroke-linecap="square" stroke-linejoin="miter"><path d="M1 13l11-11 11 11"/><path d="M5 12v9h5v-5h4v5h5v-9"/></svg></button><button class="h-btn" onclick="backSel()"><svg viewBox="2 0 24 24" stroke-linecap="square" stroke-linejoin="miter"><path d="M19 21l-11-9 11-9"/></svg></button></div><div class="hdr-c"><button class="h-btn home-lamp" onclick="openSettings()"><svg viewBox="0 0 24 24"><path d="M10.3 1.1L13.7 1.1L13.9 4.2L16.2 5.2L18.5 3.1L20.9 5.5L18.8 7.8L19.8 10.1L22.9 10.3L22.9 13.7L19.8 13.9L18.8 16.2L20.9 18.5L18.5 20.9L16.2 18.8L13.9 19.8L13.7 22.9L10.3 22.9L10.1 19.8L7.8 18.8L5.5 20.9L3.1 18.5L5.2 16.2L4.2 13.9L1.1 13.7L1.1 10.3L4.2 10.1L5.2 7.8L3.1 5.5L5.5 3.1L7.8 5.2L10.1 4.2Z" stroke-linejoin="miter"/><circle cx="12" cy="12" r="3"/></svg></button></div><div class="hdr-r"><button class="h-btn-log" onclick="openLog()">Log</button><button class="h-btn-undo" onclick="undoRst()" disabled>Undo</button><button class="h-btn-rst" onclick="rst()">Reset</button><button class="h-btn-x" onclick="backSel()"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div></div>
 <div class="st"><div class="st-hdr gA"><span>PLAYER</span><span>TOTAL</span><span>A</span><span>P</span></div>
 <div class="st-row gA r1"><div class="cl cl-nm" contenteditable="true" spellcheck="false" id="nA1">선수 1</div><div class="cl cl-sc" onclick="cCk(1,1)" oncontextmenu="cCk(1,-1);return false" id="c1T">0</div><div class="cl cl-adv" onclick="cAv(1)" oncontextmenu="cAvM(1);return false" id="c1A">0</div><div class="cl cl-pen" onclick="cPn(1)" oncontextmenu="cPnM(1);return false" id="c1P">0</div></div>
 <div class="st-row gA r2"><div class="cl cl-nm" contenteditable="true" spellcheck="false" id="nA2">선수 2</div><div class="cl cl-sc" onclick="cCk(2,1)" oncontextmenu="cCk(2,-1);return false" id="c2T">0</div><div class="cl cl-adv" onclick="cAv(2)" oncontextmenu="cAvM(2);return false" id="c2A">0</div><div class="cl cl-pen" onclick="cPn(2)" oncontextmenu="cPnM(2);return false" id="c2P">0</div></div></div>
-<div class="tms" onclick="tog()"><div class="tmv" id="tmA">5:00</div><div class="tm-edit" id="teA" onclick="event.stopPropagation()"><div class="te-presets"><button onclick="presetTm('A',4)">4분</button><button onclick="presetTm('A',5)">5분</button><button onclick="presetTm('A',6)">6분</button><button onclick="presetTm('A',7)">7분</button><button onclick="presetTm('A',8)">8분</button><button onclick="presetTm('A',10)">10분</button></div><div class="te-custom"><input id="teAm" type="number" min="0" max="59" value="05" placeholder="분"><span>:</span><input id="teAs" type="number" min="0" max="59" value="00" placeholder="초"><button onclick="applyTm('A')">SET</button></div></div><button class="tm-time-btn" onclick="event.stopPropagation();openTmEdit('A')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></button></div></div>
+<div class="tms" onclick="tog()"><div class="tmv" id="tmA">5:00</div><div class="tm-edit" id="teA" onclick="event.stopPropagation()"><div class="te-presets"><button onclick="presetTm('A',4)"><span class="tp-num">4</span><span class="tp-unit">분</span></button><button onclick="presetTm('A',5)"><span class="tp-num">5</span><span class="tp-unit">분</span></button><button onclick="presetTm('A',6)"><span class="tp-num">6</span><span class="tp-unit">분</span></button><button onclick="presetTm('A',7)"><span class="tp-num">7</span><span class="tp-unit">분</span></button><button onclick="presetTm('A',8)"><span class="tp-num">8</span><span class="tp-unit">분</span></button><button onclick="presetTm('A',10)"><span class="tp-num">10</span><span class="tp-unit">분</span></button></div><div class="te-custom"><input id="teAm" type="number" min="0" max="59" value="05" placeholder="분"><span>:</span><input id="teAs" type="number" min="0" max="59" value="00" placeholder="초"><button onclick="applyTm('A')">✔</button></div></div><button class="tm-time-btn" onclick="event.stopPropagation();openTmEdit('A')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></button></div></div>
 
 
 <!-- BOARD C -->
-<div id="bC" class="scr"><div class="hdr"><div class="hdr-l"><button class="h-btn" onclick="backHome()"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 12v7a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-7"/></svg></button><button class="h-btn" onclick="backSel()"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button></div><div class="hdr-c"><button class="h-btn" onclick="openSettings()"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button></div><div class="hdr-r"><button class="h-btn-log" onclick="openLog()">Log</button><button class="h-btn-undo" onclick="undoRst()" disabled>Undo</button><button class="h-btn-rst" onclick="rst()">Reset</button><button class="h-btn-x" onclick="backSel()"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div></div>
+<div id="bC" class="scr"><div class="hdr"><div class="hdr-l"><button class="h-btn" onclick="backHome()"><svg viewBox="0 0 24 24" stroke-linecap="square" stroke-linejoin="miter"><path d="M1 13l11-11 11 11"/><path d="M5 12v9h5v-5h4v5h5v-9"/></svg></button><button class="h-btn" onclick="backSel()"><svg viewBox="2 0 24 24" stroke-linecap="square" stroke-linejoin="miter"><path d="M19 21l-11-9 11-9"/></svg></button></div><div class="hdr-c"><button class="h-btn home-lamp" onclick="openSettings()"><svg viewBox="0 0 24 24"><path d="M10.3 1.1L13.7 1.1L13.9 4.2L16.2 5.2L18.5 3.1L20.9 5.5L18.8 7.8L19.8 10.1L22.9 10.3L22.9 13.7L19.8 13.9L18.8 16.2L20.9 18.5L18.5 20.9L16.2 18.8L13.9 19.8L13.7 22.9L10.3 22.9L10.1 19.8L7.8 18.8L5.5 20.9L3.1 18.5L5.2 16.2L4.2 13.9L1.1 13.7L1.1 10.3L4.2 10.1L5.2 7.8L3.1 5.5L5.5 3.1L7.8 5.2L10.1 4.2Z" stroke-linejoin="miter"/><circle cx="12" cy="12" r="3"/></svg></button></div><div class="hdr-r"><button class="h-btn-log" onclick="openLog()">Log</button><button class="h-btn-undo" onclick="undoRst()" disabled>Undo</button><button class="h-btn-rst" onclick="rst()">Reset</button><button class="h-btn-x" onclick="backSel()"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div></div>
 <div class="st"><div class="st-hdr gC"><span>PLAYER</span><span>2</span><span>3</span><span>4</span><span>TOTAL</span><span>A</span><span>P</span></div>
 <div class="st-row gC r1"><div class="cl cl-nm" contenteditable="true" spellcheck="false" id="nC1">선수 1</div><div class="cl cl-sc" onclick="aP(1,2)" oncontextmenu="aPM(1,2);return false" id="a12">0</div><div class="cl cl-sc" onclick="aP(1,3)" oncontextmenu="aPM(1,3);return false" id="a13">0</div><div class="cl cl-sc" onclick="aP(1,4)" oncontextmenu="aPM(1,4);return false" id="a14">0</div><div class="cl cl-tot" id="a1T">0</div><div class="cl cl-adv" onclick="aAv(1)" oncontextmenu="aAvM(1);return false" id="a1A">0</div><div class="cl cl-pen" onclick="aPn(1)" oncontextmenu="aPnM(1);return false" id="a1P">0</div></div>
 <div class="st-row gC r2"><div class="cl cl-nm" contenteditable="true" spellcheck="false" id="nC2">선수 2</div><div class="cl cl-sc" onclick="aP(2,2)" oncontextmenu="aPM(2,2);return false" id="a22">0</div><div class="cl cl-sc" onclick="aP(2,3)" oncontextmenu="aPM(2,3);return false" id="a23">0</div><div class="cl cl-sc" onclick="aP(2,4)" oncontextmenu="aPM(2,4);return false" id="a24">0</div><div class="cl cl-tot" id="a2T">0</div><div class="cl cl-adv" onclick="aAv(2)" oncontextmenu="aAvM(2);return false" id="a2A">0</div><div class="cl cl-pen" onclick="aPn(2)" oncontextmenu="aPnM(2);return false" id="a2P">0</div></div></div>
-<div class="tms" onclick="tog()"><div class="tmv" id="tmC">5:00</div><div class="tm-edit" id="teC" onclick="event.stopPropagation()"><div class="te-presets"><button onclick="presetTm('C',4)">4분</button><button onclick="presetTm('C',5)">5분</button><button onclick="presetTm('C',6)">6분</button><button onclick="presetTm('C',7)">7분</button><button onclick="presetTm('C',8)">8분</button><button onclick="presetTm('C',10)">10분</button></div><div class="te-custom"><input id="teCm" type="number" min="0" max="59" value="05" placeholder="분"><span>:</span><input id="teCs" type="number" min="0" max="59" value="00" placeholder="초"><button onclick="applyTm('C')">SET</button></div></div><button class="tm-time-btn" onclick="event.stopPropagation();openTmEdit('C')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></button></div></div>
+<div class="tms" onclick="tog()"><div class="tmv" id="tmC">5:00</div><div class="tm-edit" id="teC" onclick="event.stopPropagation()"><div class="te-presets"><button onclick="presetTm('C',4)"><span class="tp-num">4</span><span class="tp-unit">분</span></button><button onclick="presetTm('C',5)"><span class="tp-num">5</span><span class="tp-unit">분</span></button><button onclick="presetTm('C',6)"><span class="tp-num">6</span><span class="tp-unit">분</span></button><button onclick="presetTm('C',7)"><span class="tp-num">7</span><span class="tp-unit">분</span></button><button onclick="presetTm('C',8)"><span class="tp-num">8</span><span class="tp-unit">분</span></button><button onclick="presetTm('C',10)"><span class="tp-num">10</span><span class="tp-unit">분</span></button></div><div class="te-custom"><input id="teCm" type="number" min="0" max="59" value="05" placeholder="분"><span>:</span><input id="teCs" type="number" min="0" max="59" value="00" placeholder="초"><button onclick="applyTm('C')">✔</button></div></div><button class="tm-time-btn" onclick="event.stopPropagation();openTmEdit('C')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></button></div></div>
 
 
 
 
 <!-- TRAINING -->
-<div id="trbd" class="scr"><div class="hdr"><div class="hdr-l"><button class="h-btn" onclick="backHome()"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 12v7a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-7"/></svg></button><button class="h-btn" onclick="backHome()"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button></div><div class="hdr-c"><button class="h-btn" onclick="openSettings()"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button></div><div class="hdr-r"><button class="h-btn-log" onclick="openLog()">Log</button><button class="h-btn-undo" onclick="undoRst()" disabled>Undo</button><button class="h-btn-rst" onclick="rst()">Reset</button><button class="h-btn-x" onclick="backHome()"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div></div>
+<div id="trbd" class="scr"><div class="hdr"><div class="hdr-l"><button class="h-btn" onclick="backHome()"><svg viewBox="0 0 24 24" stroke-linecap="square" stroke-linejoin="miter"><path d="M1 13l11-11 11 11"/><path d="M5 12v9h5v-5h4v5h5v-9"/></svg></button><button class="h-btn" onclick="backHome()"><svg viewBox="2 0 24 24" stroke-linecap="square" stroke-linejoin="miter"><path d="M19 21l-11-9 11-9"/></svg></button></div><div class="hdr-c"><button class="h-btn home-lamp" onclick="openSettings()"><svg viewBox="0 0 24 24"><path d="M10.3 1.1L13.7 1.1L13.9 4.2L16.2 5.2L18.5 3.1L20.9 5.5L18.8 7.8L19.8 10.1L22.9 10.3L22.9 13.7L19.8 13.9L18.8 16.2L20.9 18.5L18.5 20.9L16.2 18.8L13.9 19.8L13.7 22.9L10.3 22.9L10.1 19.8L7.8 18.8L5.5 20.9L3.1 18.5L5.2 16.2L4.2 13.9L1.1 13.7L1.1 10.3L4.2 10.1L5.2 7.8L3.1 5.5L5.5 3.1L7.8 5.2L10.1 4.2Z" stroke-linejoin="miter"/><circle cx="12" cy="12" r="3"/></svg></button></div><div class="hdr-r"><button class="h-btn-log" onclick="openLog()">Log</button><button class="h-btn-undo" onclick="undoRst()" disabled>Undo</button><button class="h-btn-rst" onclick="rst()">Reset</button><button class="h-btn-x" onclick="backHome()"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div></div>
 <div class="trt">
 <div class="trt-row r1"><div class="trt-cl trt-nm" contenteditable="true" spellcheck="false" id="trN1">선수 1</div><div class="trt-cl" id="tr1td"><div class="trt-btn" onclick="trTc(1,'td',2)" oncontextmenu="trTcM(1,'td',2);return false"><span class="tv">2</span></div></div><div class="trt-cl" id="tr1sw"><div class="trt-btn" onclick="trTc(1,'sw',2)" oncontextmenu="trTcM(1,'sw',2);return false"><span class="tv">2</span></div></div><div class="trt-cl" id="tr1kob"><div class="trt-btn" onclick="trTc(1,'kob',2)" oncontextmenu="trTcM(1,'kob',2);return false"><span class="tv">2</span></div></div><div class="trt-cl" id="tr1gp"><div class="trt-btn" onclick="trTc(1,'gp',3)" oncontextmenu="trTcM(1,'gp',3);return false"><span class="tv">3</span></div></div><div class="trt-cl" id="tr1mtbk"><div class="trt-btn" onclick="trTc(1,'mtbk',4)" oncontextmenu="trTcM(1,'mtbk',4);return false"><span class="tv">4</span></div></div><div class="trt-cl trt-tot trt-sc" id="trT1">0</div><div class="trt-cl trt-adv trt-sc" onclick="trAdv(1)" oncontextmenu="trAdvM(1);return false" id="trA1">0</div><div class="trt-cl trt-pen trt-sc" onclick="trPen(1)" oncontextmenu="trPenM(1);return false" id="trP1">0</div></div>
-<div class="trt-row rl"><div class="trt-lb trt-lb-nm"><span class="trt-tip">*포지션 3초 유지해야 점수 인정</span></div><div class="trt-lb">테이크다운</div><div class="trt-lb">스윕</div><div class="trt-lb">니온벨리</div><div class="trt-lb">가드패스</div><div class="trt-lb">마운트/백</div><div class="trt-lb trt-lb-nm">점수</div><div class="trt-lb">어드밴티지</div><div class="trt-lb">패널티</div></div>
+<div class="trt-row rl"><div class="trt-lb trt-lb-nm"><span class="trt-tip">*포지션 3초 유지해야 점수 인정</span></div><div class="trt-lb" style="font-size:clamp(16px,2.8vw,25px)">테이크다운</div><div class="trt-lb">스윕</div><div class="trt-lb">니온벨리</div><div class="trt-lb">가드패스</div><div class="trt-lb">마운트/백</div><div class="trt-lb trt-lb-nm">점수</div><div class="trt-lb">어드밴티지</div><div class="trt-lb">패널티</div></div>
 <div class="trt-row r2"><div class="trt-cl trt-nm" contenteditable="true" spellcheck="false" id="trN2">선수 2</div><div class="trt-cl" id="tr2td"><div class="trt-btn" onclick="trTc(2,'td',2)" oncontextmenu="trTcM(2,'td',2);return false"><span class="tv">2</span></div></div><div class="trt-cl" id="tr2sw"><div class="trt-btn" onclick="trTc(2,'sw',2)" oncontextmenu="trTcM(2,'sw',2);return false"><span class="tv">2</span></div></div><div class="trt-cl" id="tr2kob"><div class="trt-btn" onclick="trTc(2,'kob',2)" oncontextmenu="trTcM(2,'kob',2);return false"><span class="tv">2</span></div></div><div class="trt-cl" id="tr2gp"><div class="trt-btn" onclick="trTc(2,'gp',3)" oncontextmenu="trTcM(2,'gp',3);return false"><span class="tv">3</span></div></div><div class="trt-cl" id="tr2mtbk"><div class="trt-btn" onclick="trTc(2,'mtbk',4)" oncontextmenu="trTcM(2,'mtbk',4);return false"><span class="tv">4</span></div></div><div class="trt-cl trt-tot trt-sc" id="trT2">0</div><div class="trt-cl trt-adv trt-sc" onclick="trAdv(2)" oncontextmenu="trAdvM(2);return false" id="trA2">0</div><div class="trt-cl trt-pen trt-sc" onclick="trPen(2)" oncontextmenu="trPenM(2);return false" id="trP2">0</div></div>
 </div>
 <div class="tms" onclick="tog()"><div class="tmv" id="tmTR">5:00</div><button class="tm-time-btn" onclick="event.stopPropagation();openTmEdit('TR')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></button></div></div>
@@ -501,14 +523,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 <div class="tr-time-overlay" id="teTR" onclick="if(event.target===this)closeTrEdit()">
 <div class="tr-time-box">
 <button class="s-x" onclick="closeTrEdit()"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-<h3><svg style="width:18px;height:18px;vertical-align:middle;margin-right:4px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 시간 설정</h3>
+<h3>시간 설정</h3>
 <div class="tr-time-section">
-<div class="tr-time-label">시간 프리셋</div>
-<div class="te-presets"><button onclick="presetTm('TR',4)">4분</button><button onclick="presetTm('TR',5)">5분</button><button onclick="presetTm('TR',6)">6분</button><button onclick="presetTm('TR',7)">7분</button><button onclick="presetTm('TR',8)">8분</button><button onclick="presetTm('TR',10)">10분</button></div>
-<div class="te-custom"><input id="teTRm" type="number" min="0" max="59" value="05" placeholder="분"><span>:</span><input id="teTRs" type="number" min="0" max="59" value="00" placeholder="초"><button onclick="applyTm('TR')">SET</button></div>
+<div class="te-custom tr-custom"><input id="teTRm" type="number" min="0" max="59" value="05" placeholder="분"><span class="tr-colon">:</span><input id="teTRs" type="number" min="0" max="59" value="00" placeholder="초"><button class="tr-apply" onclick="applyTm('TR')"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><polyline points="4 12 10 18 20 6"/></svg></button></div>
 </div>
 <div class="tr-time-section">
-<div class="tr-time-label">IBJJF 벨트별 <span style="font-size:0.8em;color:#666;font-weight:400;letter-spacing:1px">어덜트(성인부) 기준</span></div>
+<div class="tr-time-label">IBJJF 어덜트 기준</div>
 <div class="te-belt-row"><button class="belt-btn belt-white" onclick="beltTm('white')"><span class="belt-icon"></span>화이트<span class="belt-time">5분</span></button><button class="belt-btn belt-blue" onclick="beltTm('blue')"><span class="belt-icon"></span>블루<span class="belt-time">6분</span></button><button class="belt-btn belt-purple" onclick="beltTm('purple')"><span class="belt-icon"></span>퍼플<span class="belt-time">7분</span></button><button class="belt-btn belt-brown" onclick="beltTm('brown')"><span class="belt-icon"></span>브라운<span class="belt-time">8분</span></button><button class="belt-btn belt-black" onclick="beltTm('black')"><span class="belt-icon"></span>블랙<span class="belt-time">10분</span></button></div>
 </div>
 </div>
@@ -517,7 +537,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 <!-- SPARRING TIMER SETTINGS -->
 <div id="sparSet" class="scr">
 <div class="sp-body" style="padding-top:0">
-<div class="pg-top" style="background:none;border:none;box-shadow:none;width:100%"><div class="pt-l"><button class="h-btn" onclick="goS('home')"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 12v7a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-7"/></svg></button><button class="h-btn" onclick="goS('home')"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button></div><div class="pt-c"><button class="h-btn home-lamp" onclick="openSettings()"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button></div></div>
+<div class="pg-top" style="background:none;border:none;box-shadow:none;width:100%"><div class="pt-l"><button class="h-btn" onclick="goS('home')"><svg viewBox="0 0 24 24" stroke-linecap="square" stroke-linejoin="miter"><path d="M1 13l11-11 11 11"/><path d="M5 12v9h5v-5h4v5h5v-9"/></svg></button><button class="h-btn" onclick="goS('home')"><svg viewBox="2 0 24 24" stroke-linecap="square" stroke-linejoin="miter"><path d="M19 21l-11-9 11-9"/></svg></button></div><div class="pt-c"><button class="h-btn home-lamp" onclick="openSettings()"><svg viewBox="0 0 24 24"><path d="M10.3 1.1L13.7 1.1L13.9 4.2L16.2 5.2L18.5 3.1L20.9 5.5L18.8 7.8L19.8 10.1L22.9 10.3L22.9 13.7L19.8 13.9L18.8 16.2L20.9 18.5L18.5 20.9L16.2 18.8L13.9 19.8L13.7 22.9L10.3 22.9L10.1 19.8L7.8 18.8L5.5 20.9L3.1 18.5L5.2 16.2L4.2 13.9L1.1 13.7L1.1 10.3L4.2 10.1L5.2 7.8L3.1 5.5L5.5 3.1L7.8 5.2L10.1 4.2Z" stroke-linejoin="miter"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
 <div class="spar-title"><h1 data-text="SPARRING TIMER">SPARRING TIMER</h1></div>
 <div class="sp-grid">
 <div class="sp-panel"><div class="sp-panel-label">라운드 시간</div><div class="sp-opts" id="spRndOpts">
@@ -535,7 +555,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 
 <!-- SPARRING TIMER RUN -->
 <div id="sparRun" class="scr">
-<div class="spr-top"><button class="spr-top-btn" onclick="spStop();goS('sparSet')"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><span class="spr-round" id="spRoundTxt">Round 1 / 5</span><button class="spr-top-btn" onclick="spReset()"><svg viewBox="0 0 24 24"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 105.64-11.36L3 10"/></svg></button></div>
+<div class="spr-top"><button class="spr-top-btn" onclick="spStop();goS('sparSet')"><svg viewBox="2 0 24 24" stroke-linecap="square" stroke-linejoin="miter"><path d="M19 21l-11-9 11-9"/></svg></button><span class="spr-round" id="spRoundTxt">Round 1 / 5</span><button class="spr-top-btn" onclick="spReset()"><svg viewBox="0 0 24 24"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 105.64-11.36L3 10"/></svg></button></div>
 <div class="spr-area" onclick="spTog()">
 <div id="spState" class="sp-ready">준비</div>
 <div id="spTimer">5:00</div>
@@ -548,7 +568,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 <div class="settings-overlay" id="settingsPanel" onclick="if(event.target===this)closeSettings()">
 <div class="settings-box">
 <button class="s-x" onclick="closeSettings()"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-<h3><svg style="width:18px;height:18px;vertical-align:middle;margin-right:4px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg> Settings</h3>
+<h3><svg style="width:28px;height:28px;vertical-align:middle;margin-right:6px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg> Settings</h3>
 <div class="s-row"><div style="width:100%"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="s-label">사운드</span><button class="s-snd-toggle" id="sndTogBtn" onclick="togSnd()"><svg id="sndIcoOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg><svg id="sndIcoOff" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div>
 <div class="s-vol-row"><input type="range" class="s-slider" id="volSlider" min="0" max="100" value="70" oninput="setVol(this.value)" onchange="testSound()">
 <span class="s-vol-val" id="volVal">70%</span></div></div></div>
@@ -570,7 +590,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 </div></div>
 
 <!-- WINNER -->
-<div class="wo" id="wo"><div class="wt" id="woT">WINNER</div><div class="wn" id="woN">PLAYER</div><div class="wm" id="woM"></div><div class="wo-score" id="woScore"></div><div class="wa"><button class="whm" onclick="backHome()"><svg style="width:24px;height:24px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9"/><path d="M5 12v7a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-7"/></svg></button><button class="wbk" onclick="goBackFromWo()"><svg style="width:20px;height:20px;vertical-align:middle;margin-right:6px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>돌아가기</button><button class="wnw" onclick="nxtMatch()"><svg style="width:20px;height:20px;vertical-align:middle;margin-right:6px;fill:#fff" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>다음 경기</button></div></div>
+<div class="wo" id="wo"><div class="wt" id="woT">WINNER</div><div class="wn" id="woN">PLAYER</div><div class="wm" id="woM"></div><div class="wo-score" id="woScore"></div><div class="wa"><button class="whm" onclick="backHome()"><svg style="width:24px;height:24px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9"/><path d="M5 12v8h5v-5h4v5h5v-8"/></svg></button><button class="wbk" onclick="goBackFromWo()"><svg style="width:20px;height:20px;vertical-align:middle;margin-right:6px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>돌아가기</button><button class="wnw" onclick="nxtMatch()"><svg style="width:20px;height:20px;vertical-align:middle;margin-right:6px;fill:#fff" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>다음 경기</button></div></div>
 
 <script>
 var SET={sound:true,vol:0.7,dec:1,decTh:10};
@@ -639,13 +659,13 @@ function launchTR(){MD='TR';TT=300;RM=300;msRM=0;resetSt();
 function gTE(){return MD==='TR'?document.getElementById('tmTR'):document.getElementById('tm'+TP)}
 function sndStopIfMid(){if(RM>0&&RM<TT)sndStop()}
 function tog(){if(FIN)return;if(document.querySelector('.tm-edit.on'))return;if(AC.state==='suspended')AC.resume();RUN?pau():sta()}
-function sta(){if(RM<=0&&msRM<=0)return;RUN=true;LK=performance.now();sndStart();var a=document.querySelector('.scr.on');if(a){var h=a.querySelector('.hdr');if(h)h.style.display='none'}
+function sta(){if(RM<=0&&msRM<=0)return;RUN=true;LK=performance.now();sndStart();var a=document.querySelector('.scr.on');if(a){var h=a.querySelector('.hdr');if(h)h.style.display='none';a.querySelectorAll('.tm-time-btn').forEach(function(b){b.style.display='none'})}
   IV=setInterval(function(){var now=performance.now(),elapsed=now-LK;LK=now;
     msRM-=elapsed;while(msRM<0&&RM>0){RM--;msRM+=1000}
     if(RM<=0&&msRM<=0){RM=0;msRM=0;pau();sndStart()}
     updTU()
   },50)}
-function pau(){RUN=false;clearInterval(IV);sndStopIfMid();updTU();var a=document.querySelector('.scr.on');if(a){var h=a.querySelector('.hdr');if(h)h.style.display=''}}
+function pau(){RUN=false;clearInterval(IV);sndStopIfMid();updTU();var a=document.querySelector('.scr.on');if(a){var h=a.querySelector('.hdr');if(h)h.style.display='';a.querySelectorAll('.tm-time-btn').forEach(function(b){b.style.display=''})}}
 function _tw(str){return str.split('').map(function(c){return c===':'?'<span style="display:inline-block;width:.35em;text-align:center">'+c+'</span>':c==='.'?'<span style="display:inline-block;width:.15em;text-align:center">'+c+'</span>':'<span style="display:inline-block;width:.47em;text-align:center">'+c+'</span>'}).join('')}
 function updTU(){var e=gTE();
   var showDec=SET.dec>0&&(SET.decTh===0||RM<SET.decTh)&&(RUN||RM>0)&&RM<600;
@@ -656,8 +676,8 @@ function updTU(){var e=gTE();
   else if(!RUN){e.classList.add('stopped')}
   else if(RM<=10){e.classList.add('crit')}}
 var _snap=null;
-function rst(){pau();_snap={RM:RM,msRM:msRM,FIN:FIN,S:JSON.parse(JSON.stringify(S)),TRC:JSON.parse(JSON.stringify(TRC)),HI:HI.slice(),LOG:LOG.slice(),RUN:false};RM=TT;msRM=0;FIN=false;S={1:{p2:0,p3:0,p4:0,t:0,pe:0,ad:0,bonus:0},2:{p2:0,p3:0,p4:0,t:0,pe:0,ad:0,bonus:0}};TRC={1:{td:0,sw:0,kob:0,gp:0,mtbk:0},2:{td:0,sw:0,kob:0,gp:0,mtbk:0}};HI=[];LOG=[];updTU();refAll();updUndoBtn()}
-function undoRst(){if(!_snap)return;RM=_snap.RM;msRM=_snap.msRM;FIN=_snap.FIN;S=JSON.parse(JSON.stringify(_snap.S));TRC=_snap.TRC?JSON.parse(JSON.stringify(_snap.TRC)):TRC;HI=_snap.HI.slice();LOG=_snap.LOG?_snap.LOG.slice():[];_snap=null;updTU();refAll();updUndoBtn()}
+function rst(){pau();_snap={RM:RM,msRM:msRM,FIN:FIN,S:JSON.parse(JSON.stringify(S)),TRC:JSON.parse(JSON.stringify(TRC)),HI:HI.slice(),LOG:LOG.slice(),RUN:false};_snap.names={};var nm={TA:['nA1','nA2'],TC:['nC1','nC2'],TR:['trN1','trN2']};var k=MD==='TR'?'TR':'T'+TP;nm[k].forEach(function(id){var el=document.getElementById(id);if(el){_snap.names[id]=el.textContent;el.textContent='선수 '+(nm[k].indexOf(id)+1)}});RM=TT;msRM=0;FIN=false;S={1:{p2:0,p3:0,p4:0,t:0,pe:0,ad:0,bonus:0},2:{p2:0,p3:0,p4:0,t:0,pe:0,ad:0,bonus:0}};TRC={1:{td:0,sw:0,kob:0,gp:0,mtbk:0},2:{td:0,sw:0,kob:0,gp:0,mtbk:0}};HI=[];LOG=[];updTU();refAll();updUndoBtn()}
+function undoRst(){if(!_snap)return;RM=_snap.RM;msRM=_snap.msRM;FIN=_snap.FIN;S=JSON.parse(JSON.stringify(_snap.S));TRC=_snap.TRC?JSON.parse(JSON.stringify(_snap.TRC)):TRC;HI=_snap.HI.slice();LOG=_snap.LOG?_snap.LOG.slice():[];if(_snap.names){Object.keys(_snap.names).forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=_snap.names[id]})}_snap=null;updTU();refAll();updUndoBtn()}
 function updUndoBtn(){document.querySelectorAll('.h-btn-undo').forEach(function(b){b.disabled=!_snap})}
 
 function addLog(p,desc,fromP){var elapsed=TT-RM;var m=Math.floor(elapsed/60),s=elapsed%60;var entry={time:m+':'+String(s).padStart(2,'0'),elapsed:elapsed,player:gN(p),pNum:p,desc:desc};if(fromP){entry.linked=true;entry.fromP=fromP}LOG.push(entry)}
