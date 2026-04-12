@@ -92,7 +92,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 
 /* PG-TOP */
 .pg-top{display:flex;align-items:center;padding:clamp(8px,1.5vw,16px) clamp(10px,2vw,24px);background:none;border-bottom:none;position:relative;z-index:10;flex-shrink:0;min-height:clamp(52px,8vw,76px)}
-.pg-top .pt-l{display:flex;gap:clamp(6px,1.2vw,10px)}
+.pg-top .pt-l,.spr-top .pt-l{display:flex;gap:clamp(6px,1.2vw,10px)}
 .pg-top .pt-c{position:fixed;left:50%;top:clamp(8px,1.5vw,16px);transform:translateX(-50%);z-index:100}
 .pg-top .pt-c::before,.hdr-c::before{content:'';position:absolute;left:50%;transform:translateX(-50%);bottom:100%;width:5px;height:clamp(8px,1.5vw,16px);background:#666;border-radius:2px;z-index:-1}
 .pg-top .pt-r{margin-left:auto}
@@ -397,21 +397,21 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .spar-title h1::before{content:attr(data-text);position:absolute;inset:0;
   background:linear-gradient(160deg,#1a1a1a 0%,#333 25%,#0a0a0a 40%,#2a2a2a 55%,#111 70%,#303030 85%,#1a1a1a 100%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;-webkit-text-stroke:0;text-shadow:none}
-.sp-body{flex:1;overflow:hidden;padding:clamp(4px,1vw,10px);display:flex;flex-direction:column;align-items:center;gap:clamp(4px,0.8vh,8px)}
-.sp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,24px);width:90%;max-width:1400px;margin:clamp(40px,8vh,80px) auto 0}
-.sp-panel{background:#1a1a1a;border:1px solid #333;border-radius:clamp(10px,1.5vw,16px);padding:clamp(20px,3vw,36px) clamp(16px,2vw,24px);overflow:visible}
-.sp-panel-label{font-family:'Noto Sans KR',sans-serif;font-size:clamp(24px,4vw,40px);color:var(--green);margin-bottom:clamp(10px,1.5vw,16px);font-weight:600;letter-spacing:1px;text-align:center}
+.sp-body{flex:1;overflow:hidden;padding:clamp(4px,1vw,10px);display:flex;flex-direction:column;align-items:center;gap:clamp(4px,0.8vh,8px);height:100vh;max-height:100vh}
+.sp-grid{display:grid;grid-template-columns:repeat(3,1fr) 1.5fr;gap:clamp(12px,2vw,24px);width:90%;max-width:1400px;margin:clamp(40px,8vh,80px) auto 0}
+.sp-panel{background:#1a1a1a;border:1px solid #333;border-radius:clamp(10px,1.5vw,16px);padding:clamp(6px,1vw,12px) clamp(16px,2vw,24px) clamp(20px,3vw,36px);overflow:visible}
+.sp-panel-label{font-family:'Noto Sans KR',sans-serif;font-size:clamp(28px,4.5vw,46px);color:var(--green);margin-bottom:clamp(6px,1vw,12px);font-weight:600;letter-spacing:1px;text-align:center;white-space:nowrap}
 .sp-opts{display:flex;flex-wrap:wrap;gap:clamp(4px,1vw,8px)}
 .sp-opt{padding:clamp(6px,1vw,10px) clamp(10px,2vw,16px);border:2px solid #444;border-radius:8px;background:var(--bg);color:var(--dim);cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(13px,2.2vw,17px);font-weight:600;transition:all .15s}
 .sp-opt.on{border-color:var(--green);color:var(--green);background:rgba(0,230,118,.1)}
 .sp-opt:not(.on):hover{border-color:var(--yellow);color:var(--yellow)}
-.sp-cnt{display:flex;align-items:center;width:100%}
-.sp-cnt-val{font-family:'Noto Sans KR',sans-serif;font-size:clamp(28px,4.5vw,48px);color:#fff;flex:1;text-align:center;font-weight:700;white-space:nowrap;cursor:pointer}
-.sp-arrows{display:flex;flex-direction:column;align-items:center;gap:0;flex-shrink:0}
-.sp-arrow{background:none;border:none;cursor:pointer;padding:clamp(4px,0.8vw,8px) clamp(8px,1.5vw,14px);line-height:1;transition:all .15s;display:flex;align-items:center;justify-content:center}
-.sp-arrow::after{content:'';display:block;width:0;height:0;border-left:clamp(18px,3.5vw,30px) solid transparent;border-right:clamp(18px,3.5vw,30px) solid transparent}
-.sp-arrow-up::after{border-bottom:clamp(22px,4vw,36px) solid #fff}
-.sp-arrow-down::after{border-top:clamp(22px,4vw,36px) solid #fff}
+.sp-cnt{display:flex;align-items:center;justify-content:center;width:100%;padding:clamp(8px,1.5vh,16px) 0}
+.sp-cnt-val{font-family:'Noto Sans KR',sans-serif;font-size:clamp(36px,6vw,62px);color:#fff;flex:1;text-align:center;font-weight:700;white-space:nowrap;cursor:pointer}
+.sp-arrows{display:flex;flex-direction:column;align-items:center;gap:clamp(2px,0.5vh,6px);flex-shrink:0}
+.sp-arrow{background:none;border:none;cursor:pointer;padding:clamp(6px,1vw,12px) clamp(10px,2vw,18px);line-height:1;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.sp-arrow::after{content:'';display:block;width:0;height:0;border-left:clamp(22px,4vw,36px) solid transparent;border-right:clamp(22px,4vw,36px) solid transparent}
+.sp-arrow-up::after{border-bottom:clamp(26px,4.5vw,42px) solid #fff}
+.sp-arrow-down::after{border-top:clamp(26px,4.5vw,42px) solid #fff}
 .sp-arrow-up:hover::after{border-bottom-color:var(--red);filter:drop-shadow(0 0 10px rgba(255,26,26,.8))}
 .sp-arrow-down:hover::after{border-top-color:#1a9fff;filter:drop-shadow(0 0 10px rgba(26,159,255,.8))}
 .sp-arrow:active{transform:scale(.85)}
@@ -419,14 +419,19 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .sp-editable:hover{border-bottom-color:var(--yellow)}
 .sp-cnt-edit-sm{font-family:'Noto Sans KR',sans-serif;font-size:inherit;color:#fff;background:#333;border:2px solid var(--green);border-radius:6px;text-align:center;font-weight:700;width:1.8em;padding:0;margin:0;outline:none;-moz-appearance:textfield;box-sizing:border-box;line-height:1;vertical-align:baseline}
 .sp-cnt-edit-sm::-webkit-outer-spin-button,.sp-cnt-edit-sm::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.sp-chips{display:flex;flex-direction:column;gap:clamp(4px,1vw,8px)}
+.sp-chips{display:flex;flex-direction:column;gap:clamp(4px,1vw,8px);max-height:clamp(120px,18vh,220px);overflow-y:auto;padding-right:0;scrollbar-width:thin;scrollbar-color:var(--green) #1a1a1a}
+.sp-chips::-webkit-scrollbar{width:10px}
+.sp-chips::-webkit-scrollbar-track{background:#1a1a1a;border-radius:5px;margin-right:-4px}
+.sp-chips::-webkit-scrollbar-thumb{background:var(--green);border-radius:5px}
+.sp-chips::-webkit-scrollbar-thumb:hover{background:#00e676}
 .sp-chip{display:flex;align-items:center;justify-content:space-between;padding:clamp(8px,1.2vw,14px) clamp(14px,2vw,22px);border:1px solid #555;border-radius:24px;background:#222;color:#ccc;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(16px,3vw,22px);font-weight:600;transition:all .15s}
+.sp-chip-num{display:inline-flex;align-items:center;justify-content:center;width:clamp(22px,3vw,30px);height:clamp(22px,3vw,30px);border:2px solid var(--yellow);border-radius:50%;color:var(--yellow);font-family:'Rajdhani',sans-serif;font-size:clamp(13px,2vw,17px);font-weight:700;margin-right:clamp(6px,1vw,10px);flex-shrink:0;line-height:1;padding-top:1px;box-sizing:border-box}
 .sp-chip:hover{border-color:var(--yellow);color:var(--yellow)}
 .sp-chip-del{background:#333;border:1px solid #555;color:#888;cursor:pointer;font-size:clamp(14px,2.2vw,18px);line-height:1;padding:clamp(4px,.6vw,8px) clamp(8px,1vw,12px);border-radius:8px;transition:all .15s;margin-left:auto}
 .sp-chip-del:hover{color:#ff4444;border-color:#ff4444;background:#441111}
 .sp-chip-save{padding:clamp(8px,1.2vw,14px) clamp(14px,2vw,22px);border:1px dashed #555;border-radius:24px;background:none;color:#666;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:clamp(14px,2.4vw,18px);font-weight:600;transition:all .15s;width:100%;text-align:center}
 .sp-chip-save:hover{border-color:var(--yellow);color:var(--yellow)}
-.sp-summary{font-family:'Noto Sans KR',sans-serif;font-size:clamp(32px,6vw,52px);color:#aaa;text-align:center;letter-spacing:2px;width:100%;max-width:900px;margin-top:0;white-space:nowrap}
+.sp-summary{font-family:'Noto Sans KR',sans-serif;font-size:clamp(28px,4.5vw,46px);color:#aaa;letter-spacing:1px;margin-top:0;display:flex;flex-direction:column;align-items:center;white-space:nowrap}
 .sp-summary b{color:#fff}
 .sp-preset-add{width:100%;max-width:900px;padding:clamp(8px,1.5vw,14px);border:1px dashed #555;border-radius:clamp(12px,2vw,20px);background:none;color:#888;font-family:'Noto Sans KR',sans-serif;font-size:clamp(18px,3.5vw,26px);font-weight:600;cursor:pointer;letter-spacing:1px;transition:all .15s;margin-top:0}
 .sp-preset-add:hover{border-color:var(--yellow);color:var(--yellow)}
@@ -435,14 +440,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .sp-start:hover{filter:brightness(1.1);transform:scale(1.02)}
 .sp-start:active{transform:scale(.97)}
 #sparRun{align-items:stretch;justify-content:flex-start;gap:0;padding:0;height:100%;position:relative;background:#000}
-.spr-top{display:flex;align-items:center;justify-content:space-between;padding:clamp(8px,1.5vw,14px) clamp(10px,2vw,20px);background:#111;border-bottom:1px solid #333;flex-shrink:0;z-index:5}
-.spr-top-btn{background:#333;border:none;color:#fff;width:clamp(40px,6vw,56px);height:clamp(40px,6vw,56px);border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.spr-top-btn:hover{background:#444;border-color:var(--yellow);color:var(--yellow)}.spr-top-btn:hover svg{stroke:var(--yellow)}.spr-top-btn:active{transform:scale(.93)}
-.spr-top-btn svg{width:clamp(18px,3vw,28px);height:clamp(18px,3vw,28px);stroke:#fff;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.spr-round{font-family:'Orbitron',monospace;font-size:clamp(16px,3vw,26px);color:#fff;letter-spacing:3px}
+.spr-top{display:flex;align-items:center;justify-content:space-between;padding:clamp(8px,1.5vw,16px) clamp(10px,2vw,24px);background:none;border-bottom:none;flex-shrink:0;z-index:5;min-height:clamp(52px,8vw,76px)}
+.spr-top-btn{background:#444;border:none;color:#fff;width:clamp(48px,7.5vw,84px);height:clamp(48px,7.5vw,84px);border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.spr-top-btn:hover{background:#555;border-color:var(--yellow);color:var(--yellow)}.spr-top-btn:hover svg{stroke:var(--yellow)}.spr-top-btn:active{transform:scale(.93)}
+.spr-top-btn svg{width:clamp(32px,5.5vw,60px);height:clamp(32px,5.5vw,60px);stroke:#fff;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.spr-round{font-family:'Orbitron',monospace;font-size:clamp(28px,5vw,46px);color:#fff;letter-spacing:3px}
 .spr-body{display:flex;flex:1;overflow:hidden}
 .spr-area{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:clamp(8px,1.5vh,16px);padding:clamp(10px,2vw,20px)}
-.spr-timeline{width:clamp(80px,8vw,120px);background:#111;border-left:1px solid #333;display:flex;flex-direction:column;align-items:center;padding:clamp(16px,3vh,32px) 0;gap:0;overflow-y:auto;flex-shrink:0}
+.spr-timeline{width:clamp(80px,8vw,120px);background:#111;border-left:1px solid #333;display:flex;flex-direction:column;align-items:center;padding:clamp(16px,3vh,32px) 0;gap:0;overflow-y:auto;flex-shrink:0;position:fixed;right:0;top:0;bottom:0;z-index:10}
 .spr-tl-item{display:flex;flex-direction:column;align-items:center;flex:1;min-height:0}
 .spr-tl-dot{width:clamp(28px,3.5vw,42px);height:clamp(28px,3.5vw,42px);border-radius:50%;border:2px solid #444;background:#222;display:flex;align-items:center;justify-content:center;font-family:'Teko',sans-serif;font-size:clamp(14px,2vw,22px);color:#666;font-weight:500;transition:all .3s;flex-shrink:0}
 .spr-tl-dot.active{border-color:var(--green);background:var(--green);color:#000;box-shadow:0 0 10px rgba(0,230,118,.6),0 0 20px rgba(0,230,118,.3)}
@@ -453,7 +458,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .spr-tl-line{width:2px;flex:1;background:#333;min-height:6px}
 .spr-tl-line.done{background:var(--green);box-shadow:0 0 4px rgba(0,230,118,.4)}
 .spr-tl-line.rest-done{background:#c62828;box-shadow:0 0 4px rgba(198,40,40,.4)}
-#spState{font-family:'Orbitron',monospace;font-size:clamp(24px,5vw,48px);font-weight:900;letter-spacing:6px;transition:color .3s}
+#spState{font-family:'Orbitron',monospace;font-size:clamp(24px,5vw,48px);font-weight:900;letter-spacing:6px;transition:color .3s;min-height:clamp(30px,6vw,58px);display:flex;align-items:center;justify-content:center}
 .sp-fight{color:var(--green);text-shadow:0 0 20px rgba(0,230,118,.6)}
 .sp-rest{color:var(--yellow);text-shadow:0 0 20px rgba(255,214,0,.6)}
 .sp-done{color:var(--red);text-shadow:0 0 20px rgba(255,26,26,.6)}
@@ -461,11 +466,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .sp-paused{color:var(--red);text-shadow:0 0 20px rgba(255,26,26,.4)}
 #spTimer{font-family:'Teko',sans-serif;font-size:clamp(140px,42vw,480px);font-weight:500;color:#fff;line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums;text-align:center;transition:color .3s;cursor:pointer;user-select:none}
 #spTimer span{pointer-events:none}
-.spr-info{font-family:'Noto Sans KR',sans-serif;font-size:clamp(14px,2.5vw,20px);color:#888;text-align:center;letter-spacing:1px}
+.spr-info{font-family:'Noto Sans KR',sans-serif;font-size:clamp(14px,2.5vw,20px);color:#888;text-align:center;letter-spacing:1px;height:clamp(20px,3.5vw,30px);line-height:clamp(20px,3.5vw,30px)}
 .spr-prog-wrap{width:90%;max-width:600px;height:clamp(6px,1.2vw,10px);background:#333;border-radius:99px;overflow:hidden}
 .spr-prog{height:100%;border-radius:99px;transition:width .15s linear,background .3s;background:var(--green);box-shadow:0 0 8px rgba(0,230,118,.6),0 0 16px rgba(0,230,118,.3)}
 .spr-prog.rest{background:var(--yellow);box-shadow:0 0 8px rgba(255,214,0,.6),0 0 16px rgba(255,214,0,.3)}
-.spr-total{font-family:'Rajdhani',sans-serif;font-size:clamp(14px,2.5vw,20px);color:#666;letter-spacing:2px}
+.spr-total{font-family:'Rajdhani',sans-serif;font-size:clamp(14px,2.5vw,20px);color:#666;letter-spacing:2px;height:clamp(20px,3.5vw,30px);line-height:clamp(20px,3.5vw,30px)}
 @media(max-width:600px){.sp-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
@@ -567,18 +572,18 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 <div class="sp-panel"><div class="sp-panel-label">스파링</div><div class="sp-cnt"><span class="sp-cnt-val" id="spRndVal"><span class="sp-editable" id="spRndMin" onclick="spEditField('rnd','min')">05</span>:<span class="sp-editable" id="spRndSec" onclick="spEditField('rnd','sec')">00</span></span><div class="sp-arrows"><button class="sp-arrow sp-arrow-up" onclick="spAdjRnd(60)"></button><button class="sp-arrow sp-arrow-down" onclick="spAdjRnd(-60)"></button></div></div></div>
 <div class="sp-panel"><div class="sp-panel-label">휴식</div><div class="sp-cnt"><span class="sp-cnt-val" id="spRestVal"><span class="sp-editable" id="spRestMin" onclick="spEditField('rest','min')">01</span>:<span class="sp-editable" id="spRestSec" onclick="spEditField('rest','sec')">00</span></span><div class="sp-arrows"><button class="sp-arrow sp-arrow-up" onclick="spAdjRest(10)"></button><button class="sp-arrow sp-arrow-down" onclick="spAdjRest(-10)"></button></div></div></div>
 <div class="sp-panel"><div class="sp-panel-label">라운드 수</div><div class="sp-cnt"><span class="sp-cnt-val" id="spRndCnt">5R</span><div class="sp-arrows"><button class="sp-arrow sp-arrow-up" onclick="spSetRounds(1)"></button><button class="sp-arrow sp-arrow-down" onclick="spSetRounds(-1)"></button></div></div></div>
-<div class="sp-panel"><div class="sp-panel-label" style="color:var(--yellow)">프리셋</div><div class="sp-chips" id="spChips"></div></div>
+<div class="sp-panel" style="min-width:clamp(200px,20vw,350px);padding-right:0"><div class="sp-panel-label" style="color:var(--yellow)">프리셋</div><div class="sp-chips" id="spChips"></div></div>
 </div>
-<div style="display:flex;align-items:center;justify-content:center;gap:clamp(16px,3vw,32px);width:100%;margin-top:auto;padding-bottom:clamp(12px,2vh,24px)">
-<div class="sp-summary" id="spSummary" style="margin-top:0"></div>
-<button class="sp-preset-add" onclick="spSavePreset()" style="margin-top:0;margin-right:clamp(50px,7vw,100px);width:auto;padding:clamp(10px,2vw,18px) clamp(24px,4vw,44px);text-align:center;word-break:keep-all;line-height:1.4;font-size:clamp(20px,3.5vw,30px)">현재&nbsp;설정을<br>프리셋에&nbsp;추가</button>
-<button class="sp-start" onclick="spLaunch()" style="width:auto;padding:clamp(18px,3vw,28px) clamp(50px,8vw,100px);margin-right:clamp(50px,7vw,100px)">START</button>
+<div style="display:flex;align-items:center;justify-content:space-between;width:90%;max-width:1400px;margin:auto auto 0;padding-bottom:clamp(12px,2vh,24px)">
+<div class="sp-summary" id="spSummary" style="margin-top:0;flex-shrink:0;margin-left:clamp(40px,6vw,100px)"></div>
+<button class="sp-preset-add" onclick="spSavePreset()" style="margin-top:0;width:auto;padding:clamp(10px,2vw,18px) clamp(24px,4vw,44px);text-align:center;word-break:keep-all;line-height:1.4;font-size:clamp(20px,3.5vw,30px);flex-shrink:0">현재&nbsp;설정을<br>프리셋에&nbsp;추가</button>
+<button class="sp-start" onclick="spLaunch()" style="width:auto;padding:clamp(18px,3vw,28px) clamp(50px,8vw,100px);flex-shrink:0;margin-right:calc(-1 * clamp(42px,5.5vw,60px))">START</button>
 </div>
 </div></div>
 
 <!-- SPARRING TIMER RUN -->
 <div id="sparRun" class="scr">
-<div class="spr-top"><button class="spr-top-btn" onclick="spStop();goS('sparSet')"><svg viewBox="2 0 24 24" stroke-linecap="square" stroke-linejoin="miter"><path d="M19 21l-11-9 11-9"/></svg></button><span class="spr-round" id="spRoundTxt">Round 1 / 5</span><button class="spr-top-btn" onclick="spReset()"><svg viewBox="0 0 24 24"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 105.64-11.36L3 10"/></svg></button></div>
+<div class="pg-top" style="justify-content:space-between;width:100%;padding-left:clamp(16px,3vw,34px)"><div class="pt-l"><button class="h-btn" onclick="spStop();goS('home')"><svg viewBox="0 0 24 24" stroke-linecap="square" stroke-linejoin="miter"><path d="M1 13l11-11 11 11"/><path d="M5 12v9h5v-5h4v5h5v-9"/></svg></button><button class="h-btn" onclick="spStop();goS('sparSet')"><svg viewBox="2 0 24 24" stroke-linecap="square" stroke-linejoin="miter"><path d="M19 21l-11-9 11-9"/></svg></button></div><span class="spr-round" id="spRoundTxt">Round 1 / 5</span><button class="h-btn" onclick="spReset()"><svg viewBox="0 0 24 24"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 105.64-11.36L3 10"/></svg></button></div>
 <div class="spr-body">
 <div class="spr-area" onclick="spTog()">
 <div id="spState" class="sp-ready">READY</div>
@@ -989,15 +994,16 @@ function spFmtTime(s){var m=Math.floor(s/60),sec=s%60;return m+':'+String(sec).p
 function spUpdateSummary(){var total=SP.rndTime*SP.rounds+SP.restTime*(SP.rounds-1);
   var rm=Math.floor(SP.rndTime/60),rs=SP.rndTime%60;var rt=rm>0?(rs>0?rm+'분'+rs+'초':rm+'분'):(rs+'초');
   var xm=Math.floor(SP.restTime/60),xs=SP.restTime%60;var rest=xm>0?(xs>0?xm+'분'+xs+'초':xm+'분'):(xs+'초');
-  var tm=Math.floor(total/60),ts=total%60;var tot=tm>0?(ts>0?tm+'분'+ts+'초':tm+'분'):(ts+'초');
+  var th=Math.floor(total/3600),tmin=Math.floor((total%3600)/60),ts=total%60;
+  var tot=th+'시간'+String(tmin).padStart(2,'0')+'분'+String(ts).padStart(2,'0')+'초';
   var now=new Date();now.setSeconds(now.getSeconds()+total);var endTime=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-  document.getElementById('spSummary').innerHTML='<b style="color:var(--green)">'+rt+'</b> <span style="color:#666">×</span> <b style="color:var(--green)">'+SP.rounds+'R</b> <span style="color:#666">/</span> 휴식 <b>'+rest+'</b><br>총 <b style="color:var(--yellow)">'+tot+'</b> <span style="color:#888">('+endTime+' 종료 예정)</span>'}
+  document.getElementById('spSummary').innerHTML='<div><b style="color:var(--green)">'+rt+'</b> <span style="color:#666">×</span> <b style="color:var(--green)">'+SP.rounds+'R</b> <span style="color:#666">/</span> 휴식 <b>'+rest+'</b></div><div>총 <b style="color:var(--yellow)">'+tot+'</b></div><div><span style="color:#888">('+endTime+' 종료 예정)</span></div>'}
 function spSetRnd(v){SP.rndTime=v;spUpdateRndVal();spUpdateSummary()}
 function spUpdateRndVal(){var v=SP.rndTime;var m=Math.floor(v/60),s=v%60;document.getElementById('spRndMin').textContent=String(m).padStart(2,'0');document.getElementById('spRndSec').textContent=String(s).padStart(2,'0')}
 function spAdjRnd(d){var nv=SP.rndTime+d;if(nv<10)nv=10;if(nv>3600)nv=3600;spSetRnd(nv)}
 function spSetRest(v){SP.restTime=v;spUpdateRestVal();spUpdateSummary()}
 function spUpdateRestVal(){var v=SP.restTime;var m=Math.floor(v/60),s=v%60;document.getElementById('spRestMin').textContent=String(m).padStart(2,'0');document.getElementById('spRestSec').textContent=String(s).padStart(2,'0')}
-function spAdjRest(d){var nv=SP.restTime+d;if(nv<5)nv=5;if(nv>600)nv=600;spSetRest(nv)}
+function spAdjRest(d){var nv=SP.restTime+d;if(nv<10)nv=10;if(nv>600)nv=600;spSetRest(nv)}
 function spEditField(type,field){var elId=type==='rnd'?(field==='min'?'spRndMin':'spRndSec'):(field==='min'?'spRestMin':'spRestSec');
   var el=document.getElementById(elId);var orig=el.textContent;
   var inp=document.createElement('input');inp.className='sp-cnt-edit-sm';inp.type='number';inp.min=0;inp.max=59;inp.value=parseInt(orig);
@@ -1031,7 +1037,7 @@ function spRenderTimeline(){var box=document.getElementById('spTimeline');var h=
 function spUpdateDisplay(){var el=document.getElementById('spTimer'),st=document.getElementById('spState'),pr=document.getElementById('spProg'),info=document.getElementById('spInfo'),rndTxt=document.getElementById('spRoundTxt'),tot=document.getElementById('spTotal');
   rndTxt.textContent='Round '+SP.curRound+' / '+SP.rounds;spRenderTimeline();
   el.style.color='';el.style.textShadow='';
-  if(SP.phase==='idle'){st.textContent='READY';st.className='sp-ready';el.innerHTML=_tw(spFmtTime(SP.rndTime));pr.style.width='100%';pr.className='spr-prog';info.textContent='탭하여 시작';tot.textContent=''}
+  if(SP.phase==='idle'){st.textContent='READY';st.className='sp-ready';el.innerHTML=_tw(spFmtTime(SP.rndTime));pr.style.width='100%';pr.className='spr-prog';info.textContent='탭하여 시작';tot.innerHTML='\u00A0'}
   else if(SP.phase==='fight'){var txt=SP.spRUN?'COMBAT':'\u00A0';st.textContent=txt;st.className=SP.spRUN?'sp-fight':'sp-paused';el.innerHTML=_tw(spFmtTime(SP.rndRM));el.style.color=SP.spRUN?'':'var(--red)';el.style.textShadow=SP.spRUN?'':'0 0 20px rgba(255,26,26,.4)';pr.style.width=(SP.rndRM/SP.rndTime*100)+'%';pr.className='spr-prog';info.textContent='Round '+SP.curRound}
   else if(SP.phase==='rest'){var txt=SP.spRUN?'REST':'\u00A0';st.textContent=txt;st.className=SP.spRUN?'sp-rest':'sp-paused';el.innerHTML=_tw(spFmtTime(SP.rndRM));el.style.color=SP.spRUN?'':'var(--red)';el.style.textShadow=SP.spRUN?'':'0 0 20px rgba(255,26,26,.4)';pr.style.width=(SP.rndRM/SP.restTime*100)+'%';pr.className='spr-prog rest';info.textContent='휴식'}
   else if(SP.phase==='done'){st.textContent='완료';st.className='sp-done';el.innerHTML=_tw('0:00');pr.style.width='0%';pr.className='spr-prog';info.textContent='전체 라운드 종료'}
@@ -1065,7 +1071,7 @@ function spApplyPreset(idx){var presets=spLoadPresets();var p=presets[idx];if(!p
   SP.rndTime=p.rndTime;SP.restTime=p.restTime;SP.rounds=p.rounds;SP.warn=p.warn!==undefined?p.warn:10;
   spSetRnd(SP.rndTime);spSetRest(SP.restTime);document.getElementById('spRndCnt').textContent=SP.rounds+'R';spSetWarn(SP.warn);spUpdateSummary()}
 function spRenderChips(){var box=document.getElementById('spChips');var presets=spLoadPresets();var h='';
-  presets.forEach(function(p,i){h+='<span class="sp-chip" onclick="spApplyPreset('+i+')">'+p.name+'<button class="sp-chip-del" onclick="event.stopPropagation();spDeletePreset('+i+')">&times;</button></span>'});
+  presets.forEach(function(p,i){h+='<span class="sp-chip" onclick="spApplyPreset('+i+')"><span class="sp-chip-num">'+(i+1)+'</span>'+p.name+'<button class="sp-chip-del" onclick="event.stopPropagation();spDeletePreset('+i+')">&times;</button></span>'});
   box.innerHTML=h}
 spUpdateSummary();spRenderChips();
 </script>
